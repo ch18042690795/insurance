@@ -1,13 +1,17 @@
-package com.middle;
+package com;
 
+
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@MapperScan(value={"com.middle.service.InsertDataService"})
 public class InsuranceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(InsuranceApplication.class, args);
+
 	}
 
 }

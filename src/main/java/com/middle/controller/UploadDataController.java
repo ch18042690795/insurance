@@ -21,7 +21,7 @@ public class UploadDataController {
     private String location;
     @RequestMapping("/excel")
     public String downExcel(){
-        String result =null;
+      /*  String result =null;
         List<Programmer> lists=new ArrayList<>();
         Programmer p1=new Programmer();
         Programmer p2=new Programmer();
@@ -34,6 +34,7 @@ public class UploadDataController {
         lists.add(p1);
         lists.add(p2);
         result= ExcelUtils.getDownLoad(lists,p1,location);
-        return result;
+        return result;*/
+      return null;
     }
 }

@@ -65,7 +65,6 @@ public  class ExcelUtils {
         ExportParams params1 = new ExportParams() ;
         // 设置sheet得名称
         params1.setSheetName("用户信息"); ;
-
         // 创建sheet1使用得map
         Map<String,Object> dataMap1 = new HashMap<>();
         // title的参数为ExportParams类型，目前仅仅在ExportParams中设置了sheetName
