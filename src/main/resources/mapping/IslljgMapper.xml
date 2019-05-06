@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.dao.IslljgMapper">
+  <resultMap id="BaseResultMap" type="com.middle.entity.Islljg">
+
+    <result column="fwwdbh" jdbcType="VARCHAR" property="fwwdbh" />
+    <result column="fwwdmc" jdbcType="VARCHAR" property="fwwdmc" />
+    <result column="wdjbbh" jdbcType="VARCHAR" property="wdjbbh" />
+    <result column="qsrq00" jdbcType="VARCHAR" property="qsrq00" />
+    <result column="jzrq00" jdbcType="VARCHAR" property="jzrq00" />
+    <result column="lxren0" jdbcType="VARCHAR" property="lxren0" />
+    <result column="lxdhua" jdbcType="VARCHAR" property="lxdhua" />
+    <result column="lxsji0" jdbcType="VARCHAR" property="lxsji0" />
+    <result column="wddz00" jdbcType="VARCHAR" property="wddz00" />
+    <result column="yljgxz" jdbcType="VARCHAR" property="yljgxz" />
+    <result column="sfddyljg" jdbcType="VARCHAR" property="sfddyljg" />
+    <result column="yljgylxz" jdbcType="VARCHAR" property="yljgylxz" />
+    <result column="yljgxzjb" jdbcType="VARCHAR" property="yljgxzjb" />
+    <result column="yljgxzgsd" jdbcType="VARCHAR" property="yljgxzgsd" />
+  </resultMap>
+  <insert id="insert" parameterType="com.middle.entity.Islljg">
+    insert into is_lljg (fwwdbh, fwwdmc,
+      wdjbbh, qsrq00, jzrq00, 
+      lxren0, lxdhua, lxsji0, 
+      wddz00, yljgxz, sfddyljg, 
+      yljgylxz, yljgxzjb, yljgxzgsd
+      )
+    values (#{fwwdbh,jdbcType=VARCHAR}, #{fwwdmc,jdbcType=VARCHAR},
+      #{wdjbbh,jdbcType=VARCHAR}, #{qsrq00,jdbcType=VARCHAR}, #{jzrq00,jdbcType=VARCHAR}, 
+      #{lxren0,jdbcType=VARCHAR}, #{lxdhua,jdbcType=VARCHAR}, #{lxsji0,jdbcType=VARCHAR}, 
+      #{wddz00,jdbcType=VARCHAR}, #{yljgxz,jdbcType=VARCHAR}, #{sfddyljg,jdbcType=VARCHAR}, 
+      #{yljgylxz,jdbcType=VARCHAR}, #{yljgxzjb,jdbcType=VARCHAR}, #{yljgxzgsd,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.middle.entity.Islljg">
+    insert into is_lljg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+
+      <if test="fwwdbh != null">
+        fwwdbh,
+      </if>
+      <if test="fwwdmc != null">
+        fwwdmc,
+      </if>
+      <if test="wdjbbh != null">
+        wdjbbh,
+      </if>
+      <if test="qsrq00 != null">
+        qsrq00,
+      </if>
+      <if test="jzrq00 != null">
+        jzrq00,
+      </if>
+      <if test="lxren0 != null">
+        lxren0,
+      </if>
+      <if test="lxdhua != null">
+        lxdhua,
+      </if>
+      <if test="lxsji0 != null">
+        lxsji0,
+      </if>
+      <if test="wddz00 != null">
+        wddz00,
+      </if>
+      <if test="yljgxz != null">
+        yljgxz,
+      </if>
+      <if test="sfddyljg != null">
+        sfddyljg,
+      </if>
+      <if test="yljgylxz != null">
+        yljgylxz,
+      </if>
+      <if test="yljgxzjb != null">
+        yljgxzjb,
+      </if>
+      <if test="yljgxzgsd != null">
+        yljgxzgsd,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+
+      <if test="fwwdbh != null">
+        #{fwwdbh,jdbcType=VARCHAR},
+      </if>
+      <if test="fwwdmc != null">
+        #{fwwdmc,jdbcType=VARCHAR},
+      </if>
+      <if test="wdjbbh != null">
+        #{wdjbbh,jdbcType=VARCHAR},
+      </if>
+      <if test="qsrq00 != null">
+        #{qsrq00,jdbcType=VARCHAR},
+      </if>
+      <if test="jzrq00 != null">
+        #{jzrq00,jdbcType=VARCHAR},
+      </if>
+      <if test="lxren0 != null">
+        #{lxren0,jdbcType=VARCHAR},
+      </if>
+      <if test="lxdhua != null">
+        #{lxdhua,jdbcType=VARCHAR},
+      </if>
+      <if test="lxsji0 != null">
+        #{lxsji0,jdbcType=VARCHAR},
+      </if>
+      <if test="wddz00 != null">
+        #{wddz00,jdbcType=VARCHAR},
+      </if>
+      <if test="yljgxz != null">
+        #{yljgxz,jdbcType=VARCHAR},
+      </if>
+      <if test="sfddyljg != null">
+        #{sfddyljg,jdbcType=VARCHAR},
+      </if>
+      <if test="yljgylxz != null">
+        #{yljgylxz,jdbcType=VARCHAR},
+      </if>
+      <if test="yljgxzjb != null">
+        #{yljgxzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="yljgxzgsd != null">
+        #{yljgxzgsd,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

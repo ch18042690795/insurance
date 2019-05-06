@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.dao.IsSdmlMapper">
+  <resultMap id="BaseResultMap" type="com.middle.entity.IsSdml">
+    <result column="pkid00" jdbcType="VARCHAR" property="pkid00" />
+    <result column="xmbh00" jdbcType="VARCHAR" property="xmbh00" />
+    <result column="xmmc00" jdbcType="VARCHAR" property="xmmc00" />
+    <result column="yplb00" jdbcType="VARCHAR" property="yplb00" />
+    <result column="fpxmbh" jdbcType="VARCHAR" property="fpxmbh" />
+    <result column="ybfyfw" jdbcType="DECIMAL" property="ybfyfw" />
+    <result column="xmdw00" jdbcType="VARCHAR" property="xmdw00" />
+    <result column="xmgg00" jdbcType="VARCHAR" property="xmgg00" />
+    <result column="jx0000" jdbcType="VARCHAR" property="jx0000" />
+  </resultMap>
+  <insert id="insert" parameterType="com.middle.entity.IsSdml">
+    insert into is_sdml (pkid00, xmbh00, xmmc00, 
+      yplb00, fpxmbh, ybfyfw, 
+      xmdw00, xmgg00, jx0000
+      )
+    values (#{pkid00,jdbcType=VARCHAR}, #{xmbh00,jdbcType=VARCHAR}, #{xmmc00,jdbcType=VARCHAR}, 
+      #{yplb00,jdbcType=VARCHAR}, #{fpxmbh,jdbcType=VARCHAR}, #{ybfyfw,jdbcType=DECIMAL}, 
+      #{xmdw00,jdbcType=VARCHAR}, #{xmgg00,jdbcType=VARCHAR}, #{jx0000,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.middle.entity.IsSdml">
+    insert into is_sdml
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkid00 != null">
+        pkid00,
+      </if>
+      <if test="xmbh00 != null">
+        xmbh00,
+      </if>
+      <if test="xmmc00 != null">
+        xmmc00,
+      </if>
+      <if test="yplb00 != null">
+        yplb00,
+      </if>
+      <if test="fpxmbh != null">
+        fpxmbh,
+      </if>
+      <if test="ybfyfw != null">
+        ybfyfw,
+      </if>
+      <if test="xmdw00 != null">
+        xmdw00,
+      </if>
+      <if test="xmgg00 != null">
+        xmgg00,
+      </if>
+      <if test="jx0000 != null">
+        jx0000,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkid00 != null">
+        #{pkid00,jdbcType=VARCHAR},
+      </if>
+      <if test="xmbh00 != null">
+        #{xmbh00,jdbcType=VARCHAR},
+      </if>
+      <if test="xmmc00 != null">
+        #{xmmc00,jdbcType=VARCHAR},
+      </if>
+      <if test="yplb00 != null">
+        #{yplb00,jdbcType=VARCHAR},
+      </if>
+      <if test="fpxmbh != null">
+        #{fpxmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="ybfyfw != null">
+        #{ybfyfw,jdbcType=DECIMAL},
+      </if>
+      <if test="xmdw00 != null">
+        #{xmdw00,jdbcType=VARCHAR},
+      </if>
+      <if test="xmgg00 != null">
+        #{xmgg00,jdbcType=VARCHAR},
+      </if>
+      <if test="jx0000 != null">
+        #{jx0000,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
