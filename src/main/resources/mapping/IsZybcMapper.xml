@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.dao.IsZybcMapper">
+  <resultMap id="BaseResultMap" type="com.middle.entity.IsZybc">
+    <result column="opid00" jdbcType="VARCHAR" property="opid00" />
+    <result column="dbspid" jdbcType="VARCHAR" property="dbspid" />
+    <result column="ybhao" jdbcType="VARCHAR" property="ybhao" />
+    <result column="xming0" jdbcType="VARCHAR" property="xming0" />
+    <result column="xbie00" jdbcType="VARCHAR" property="xbie00" />
+    <result column="zylsh0" jdbcType="VARCHAR" property="zylsh0" />
+    <result column="rylx00" jdbcType="VARCHAR" property="rylx00" />
+    <result column="djlsh0" jdbcType="VARCHAR" property="djlsh0" />
+    <result column="lyzt00" jdbcType="VARCHAR" property="lyzt00" />
+    <result column="swsj00" jdbcType="VARCHAR" property="swsj00" />
+    <result column="lyzd00" jdbcType="VARCHAR" property="lyzd00" />
+    <result column="bzf000" jdbcType="VARCHAR" property="bzf000" />
+  </resultMap>
+  <insert id="insert" parameterType="com.middle.entity.IsZybc">
+    insert into is_zybc (opid00, dbspid, ybhao, 
+      xming0, xbie00, zylsh0, 
+      rylx00, djlsh0, lyzt00, 
+      swsj00, lyzd00, bzf000
+      )
+    values (#{opid00,jdbcType=VARCHAR}, #{dbspid,jdbcType=VARCHAR}, #{ybhao,jdbcType=VARCHAR}, 
+      #{xming0,jdbcType=VARCHAR}, #{xbie00,jdbcType=VARCHAR}, #{zylsh0,jdbcType=VARCHAR}, 
+      #{rylx00,jdbcType=VARCHAR}, #{djlsh0,jdbcType=VARCHAR}, #{lyzt00,jdbcType=VARCHAR}, 
+      #{swsj00,jdbcType=VARCHAR}, #{lyzd00,jdbcType=VARCHAR}, #{bzf000,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.middle.entity.IsZybc">
+    insert into is_zybc
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="opid00 != null">
+        opid00,
+      </if>
+      <if test="dbspid != null">
+        dbspid,
+      </if>
+      <if test="ybhao != null">
+        ybhao,
+      </if>
+      <if test="xming0 != null">
+        xming0,
+      </if>
+      <if test="xbie00 != null">
+        xbie00,
+      </if>
+      <if test="zylsh0 != null">
+        zylsh0,
+      </if>
+      <if test="rylx00 != null">
+        rylx00,
+      </if>
+      <if test="djlsh0 != null">
+        djlsh0,
+      </if>
+      <if test="lyzt00 != null">
+        lyzt00,
+      </if>
+      <if test="swsj00 != null">
+        swsj00,
+      </if>
+      <if test="lyzd00 != null">
+        lyzd00,
+      </if>
+      <if test="bzf000 != null">
+        bzf000,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="opid00 != null">
+        #{opid00,jdbcType=VARCHAR},
+      </if>
+      <if test="dbspid != null">
+        #{dbspid,jdbcType=VARCHAR},
+      </if>
+      <if test="ybhao != null">
+        #{ybhao,jdbcType=VARCHAR},
+      </if>
+      <if test="xming0 != null">
+        #{xming0,jdbcType=VARCHAR},
+      </if>
+      <if test="xbie00 != null">
+        #{xbie00,jdbcType=VARCHAR},
+      </if>
+      <if test="zylsh0 != null">
+        #{zylsh0,jdbcType=VARCHAR},
+      </if>
+      <if test="rylx00 != null">
+        #{rylx00,jdbcType=VARCHAR},
+      </if>
+      <if test="djlsh0 != null">
+        #{djlsh0,jdbcType=VARCHAR},
+      </if>
+      <if test="lyzt00 != null">
+        #{lyzt00,jdbcType=VARCHAR},
+      </if>
+      <if test="swsj00 != null">
+        #{swsj00,jdbcType=VARCHAR},
+      </if>
+      <if test="lyzd00 != null">
+        #{lyzd00,jdbcType=VARCHAR},
+      </if>
+      <if test="bzf000 != null">
+        #{bzf000,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

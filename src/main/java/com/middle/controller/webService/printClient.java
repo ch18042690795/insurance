@@ -17,12 +17,16 @@ import javax.xml.rpc.ParameterMode;
 @Component
 public class printClient {
 
+/*
     public static void main(String[] args) throws Exception {
-       /* String webServiceURL="http://192.168.1.111:8080/eapdomain/services/PiccWSInterface";//webService服务地址*/
+       */
+/* String webServiceURL="http://192.168.1.111:8080/eapdomain/services/PiccWSInterface";//webService服务地址*//*
+
         String XMLStr ="chen";// XML报文串
         String result = (new printClient()).print(XMLStr);
         System.out.println(result);
     }
+*/
 
     public static String print(String names) {
         String result = null;

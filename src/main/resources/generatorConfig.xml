@@ -48,7 +48,7 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-        <table tableName="is_cbrxx" domainObjectName="IsCbrxx" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
+      <!--  <table tableName="is_cbrxx" domainObjectName="IsCbrxx" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
         <table tableName="is_cbxxhq" domainObjectName="IsCbxxhq" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
         <table tableName="is_cyxx" domainObjectName="IsCyxx" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
         <table tableName="is_dbbcywzt" domainObjectName="IsDbbcywzt" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
@@ -61,10 +61,9 @@
         <table tableName="is_zd" domainObjectName="IsZd" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
         <table tableName="is_zj" domainObjectName="IsZj" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
         <table tableName="is_zybc" domainObjectName="IsZybc" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table tableName="is_zysfmx" domainObjectName="IsZysfmx" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
-        <table tableName="is_zyxx" domainObjectName="IsZyxx" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
-        </table>
-
+        <table tableName="is_zysfmx" domainObjectName="IsZysfmx" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+      <!--  <table tableName="is_zyxx" domainObjectName="IsZyxx" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>-->
+    <table tableName="is_dbbcywztcx" domainObjectName="IsDbbcywztcx" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
         <!--        <table tableName="orders"></table>
                 <table tableName="orderdetail"></table>-->
         <!-- <table schema="" tableName="sys_user"></table>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.dao.IsZdMapper">
+  <resultMap id="BaseResultMap" type="com.middle.entity.IsZd">
+    <result column="pkid00" jdbcType="VARCHAR" property="pkid00" />
+    <result column="cszd00" jdbcType="VARCHAR" property="cszd00" />
+    <result column="zzdjb0" jdbcType="VARCHAR" property="zzdjb0" />
+    <result column="bfz000" jdbcType="VARCHAR" property="bfz000" />
+    <result column="Qtzdjb" jdbcType="VARCHAR" property="qtzdjb" />
+    <result column="Sfcetk" jdbcType="VARCHAR" property="sfcetk" />
+    <result column="zylsh0_old" jdbcType="VARCHAR" property="zylsh0Old" />
+  </resultMap>
+  <insert id="insert" parameterType="com.middle.entity.IsZd">
+    insert into is_zd (pkid00, cszd00, zzdjb0, 
+      bfz000, Qtzdjb, Sfcetk, 
+      zylsh0_old)
+    values (#{pkid00,jdbcType=VARCHAR}, #{cszd00,jdbcType=VARCHAR}, #{zzdjb0,jdbcType=VARCHAR}, 
+      #{bfz000,jdbcType=VARCHAR}, #{qtzdjb,jdbcType=VARCHAR}, #{sfcetk,jdbcType=VARCHAR}, 
+      #{zylsh0Old,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.middle.entity.IsZd">
+    insert into is_zd
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkid00 != null">
+        pkid00,
+      </if>
+      <if test="cszd00 != null">
+        cszd00,
+      </if>
+      <if test="zzdjb0 != null">
+        zzdjb0,
+      </if>
+      <if test="bfz000 != null">
+        bfz000,
+      </if>
+      <if test="qtzdjb != null">
+        Qtzdjb,
+      </if>
+      <if test="sfcetk != null">
+        Sfcetk,
+      </if>
+      <if test="zylsh0Old != null">
+        zylsh0_old,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkid00 != null">
+        #{pkid00,jdbcType=VARCHAR},
+      </if>
+      <if test="cszd00 != null">
+        #{cszd00,jdbcType=VARCHAR},
+      </if>
+      <if test="zzdjb0 != null">
+        #{zzdjb0,jdbcType=VARCHAR},
+      </if>
+      <if test="bfz000 != null">
+        #{bfz000,jdbcType=VARCHAR},
+      </if>
+      <if test="qtzdjb != null">
+        #{qtzdjb,jdbcType=VARCHAR},
+      </if>
+      <if test="sfcetk != null">
+        #{sfcetk,jdbcType=VARCHAR},
+      </if>
+      <if test="zylsh0Old != null">
+        #{zylsh0Old,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

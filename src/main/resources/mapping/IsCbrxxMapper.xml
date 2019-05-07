@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.dao.IsCbrxxMapper">
+  <resultMap id="BaseResultMap" type="com.middle.entity.IsCbrxx">
+    <result column="pkid00" jdbcType="VARCHAR" property="pkid00" />
+    <result column="qhdm00" jdbcType="VARCHAR" property="qhdm00" />
+    <result column="ywlx00" jdbcType="VARCHAR" property="ywlx00" />
+    <result column="cbzt00" jdbcType="VARCHAR" property="cbzt00" />
+    <result column="id0000" jdbcType="VARCHAR" property="id0000" />
+    <result column="xbie00" jdbcType="VARCHAR" property="xbie00" />
+    <result column="zjlx00" jdbcType="VARCHAR" property="zjlx00" />
+    <result column="zjhm00" jdbcType="VARCHAR" property="zjhm00" />
+    <result column="csrq00" jdbcType="VARCHAR" property="csrq00" />
+    <result column="rysx00" jdbcType="VARCHAR" property="rysx00" />
+    <result column="qsrq00" jdbcType="VARCHAR" property="qsrq00" />
+    <result column="jzrq00" jdbcType="VARCHAR" property="jzrq00" />
+    <result column="txdzhi" jdbcType="VARCHAR" property="txdzhi" />
+    <result column="dhua00" jdbcType="VARCHAR" property="dhua00" />
+  </resultMap>
+  <insert id="insert" parameterType="com.middle.entity.IsCbrxx">
+    insert into is_cbrxx (pkid00, qhdm00, ywlx00, 
+      cbzt00, id0000, xbie00, 
+      zjlx00, zjhm00, csrq00, 
+      rysx00, qsrq00, jzrq00, 
+      txdzhi, dhua00)
+    values (#{pkid00,jdbcType=VARCHAR}, #{qhdm00,jdbcType=VARCHAR}, #{ywlx00,jdbcType=VARCHAR}, 
+      #{cbzt00,jdbcType=VARCHAR}, #{id0000,jdbcType=VARCHAR}, #{xbie00,jdbcType=VARCHAR}, 
+      #{zjlx00,jdbcType=VARCHAR}, #{zjhm00,jdbcType=VARCHAR}, #{csrq00,jdbcType=VARCHAR}, 
+      #{rysx00,jdbcType=VARCHAR}, #{qsrq00,jdbcType=VARCHAR}, #{jzrq00,jdbcType=VARCHAR}, 
+      #{txdzhi,jdbcType=VARCHAR}, #{dhua00,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.middle.entity.IsCbrxx">
+    insert into is_cbrxx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkid00 != null">
+        pkid00,
+      </if>
+      <if test="qhdm00 != null">
+        qhdm00,
+      </if>
+      <if test="ywlx00 != null">
+        ywlx00,
+      </if>
+      <if test="cbzt00 != null">
+        cbzt00,
+      </if>
+      <if test="id0000 != null">
+        id0000,
+      </if>
+      <if test="xbie00 != null">
+        xbie00,
+      </if>
+      <if test="zjlx00 != null">
+        zjlx00,
+      </if>
+      <if test="zjhm00 != null">
+        zjhm00,
+      </if>
+      <if test="csrq00 != null">
+        csrq00,
+      </if>
+      <if test="rysx00 != null">
+        rysx00,
+      </if>
+      <if test="qsrq00 != null">
+        qsrq00,
+      </if>
+      <if test="jzrq00 != null">
+        jzrq00,
+      </if>
+      <if test="txdzhi != null">
+        txdzhi,
+      </if>
+      <if test="dhua00 != null">
+        dhua00,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkid00 != null">
+        #{pkid00,jdbcType=VARCHAR},
+      </if>
+      <if test="qhdm00 != null">
+        #{qhdm00,jdbcType=VARCHAR},
+      </if>
+      <if test="ywlx00 != null">
+        #{ywlx00,jdbcType=VARCHAR},
+      </if>
+      <if test="cbzt00 != null">
+        #{cbzt00,jdbcType=VARCHAR},
+      </if>
+      <if test="id0000 != null">
+        #{id0000,jdbcType=VARCHAR},
+      </if>
+      <if test="xbie00 != null">
+        #{xbie00,jdbcType=VARCHAR},
+      </if>
+      <if test="zjlx00 != null">
+        #{zjlx00,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhm00 != null">
+        #{zjhm00,jdbcType=VARCHAR},
+      </if>
+      <if test="csrq00 != null">
+        #{csrq00,jdbcType=VARCHAR},
+      </if>
+      <if test="rysx00 != null">
+        #{rysx00,jdbcType=VARCHAR},
+      </if>
+      <if test="qsrq00 != null">
+        #{qsrq00,jdbcType=VARCHAR},
+      </if>
+      <if test="jzrq00 != null">
+        #{jzrq00,jdbcType=VARCHAR},
+      </if>
+      <if test="txdzhi != null">
+        #{txdzhi,jdbcType=VARCHAR},
+      </if>
+      <if test="dhua00 != null">
+        #{dhua00,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

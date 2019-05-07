@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.dao.IsDbbcywztcxMapper">
+  <resultMap id="BaseResultMap" type="com.middle.entity.IsDbbcywztcx">
+    <result column="dbspid" jdbcType="VARCHAR" property="dbspid" />
+  </resultMap>
+  <insert id="insert" parameterType="com.middle.entity.IsDbbcywztcx">
+    insert into is_dbbcywztcx (dbspid)
+    values (#{dbspid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.middle.entity.IsDbbcywztcx">
+    insert into is_dbbcywztcx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="dbspid != null">
+        dbspid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="dbspid != null">
+        #{dbspid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

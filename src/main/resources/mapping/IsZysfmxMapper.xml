@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.dao.IsZysfmxMapper">
+  <resultMap id="BaseResultMap" type="com.middle.entity.IsZysfmx">
+    <result column="pkid00" jdbcType="VARCHAR" property="pkid00" />
+    <result column="xmbh00" jdbcType="VARCHAR" property="xmbh00" />
+    <result column="xmmc00" jdbcType="VARCHAR" property="xmmc00" />
+    <result column="yplb00" jdbcType="VARCHAR" property="yplb00" />
+    <result column="fpxmbh" jdbcType="VARCHAR" property="fpxmbh" />
+    <result column="zfbl00" jdbcType="VARCHAR" property="zfbl00" />
+    <result column="yysdmlbh" jdbcType="VARCHAR" property="yysdmlbh" />
+    <result column="yysdmlmc" jdbcType="VARCHAR" property="yysdmlmc" />
+  </resultMap>
+  <insert id="insert" parameterType="java.util.List">
+    insert into is_zysfmx (pkid00, xmbh00, xmmc00,
+      yplb00, fpxmbh, zfbl00, 
+      yysdmlbh, yysdmlmc)
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+    (#{item.pkid00,jdbcType=VARCHAR}, #{item.xmbh00,jdbcType=VARCHAR}, #{item.xmmc00,jdbcType=VARCHAR},
+      #{item.yplb00,jdbcType=VARCHAR}, #{item.fpxmbh,jdbcType=VARCHAR}, #{item.zfbl00,jdbcType=VARCHAR},
+      #{item.yysdmlbh,jdbcType=VARCHAR}, #{item.yysdmlmc,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="insertSelective" parameterType="com.middle.entity.IsZysfmx">
+    insert into is_zysfmx
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkid00 != null">
+        pkid00,
+      </if>
+      <if test="xmbh00 != null">
+        xmbh00,
+      </if>
+      <if test="xmmc00 != null">
+        xmmc00,
+      </if>
+      <if test="yplb00 != null">
+        yplb00,
+      </if>
+      <if test="fpxmbh != null">
+        fpxmbh,
+      </if>
+      <if test="zfbl00 != null">
+        zfbl00,
+      </if>
+      <if test="yysdmlbh != null">
+        yysdmlbh,
+      </if>
+      <if test="yysdmlmc != null">
+        yysdmlmc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkid00 != null">
+        #{pkid00,jdbcType=VARCHAR},
+      </if>
+      <if test="xmbh00 != null">
+        #{xmbh00,jdbcType=VARCHAR},
+      </if>
+      <if test="xmmc00 != null">
+        #{xmmc00,jdbcType=VARCHAR},
+      </if>
+      <if test="yplb00 != null">
+        #{yplb00,jdbcType=VARCHAR},
+      </if>
+      <if test="fpxmbh != null">
+        #{fpxmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zfbl00 != null">
+        #{zfbl00,jdbcType=VARCHAR},
+      </if>
+      <if test="yysdmlbh != null">
+        #{yysdmlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="yysdmlmc != null">
+        #{yysdmlmc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

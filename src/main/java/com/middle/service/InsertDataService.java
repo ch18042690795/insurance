@@ -1,7 +1,6 @@
 package com.middle.service;
 
-import com.middle.entity.IsSdml;
-import com.middle.entity.Islljg;
+import com.middle.entity.*;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -12,5 +11,22 @@ import java.util.HashMap;
 @Service
 public interface InsertDataService {
     public String insertData(IsSdml isSdml);
+
     public String insertData(Islljg islljg);
+
+    public String insertData(IsDbsp isDbsp);
+
+    public String insertData(IsZybc isZybc);
+
+    public String insertData(IsCbrxx isCbrxx);
+
+    public String insertData(IsDbbcywzt isDbbcywzt);
+
+    public String insertData(IsCbxxhq isCbxxhq);
+
+    public String insertData(Islpzt islpzt);
+
+    public String insertData(IsDbbcywztcx isDbbcywztcx);
+
+
 }

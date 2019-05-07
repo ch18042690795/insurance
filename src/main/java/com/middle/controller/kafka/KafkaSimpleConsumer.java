@@ -1,7 +1,6 @@
 package com.middle.controller.kafka;
 
-import com.middle.entity.IsSdml;
-import com.middle.entity.Islljg;
+import com.middle.entity.*;
 import com.middle.service.InsertDataService;
 import com.middle.service.UploadDataService;
 import com.middle.utils.Array2List;
@@ -30,7 +29,7 @@ public class KafkaSimpleConsumer {
     @Autowired
     UploadDataService uploadDataService;
 
-    // 简单消费者
+    // 三大目录消费主题
     @KafkaListener(id = "consumer1-0", groupId = "simpleGroup", topics = {"${spring.kafka.app.topic.foo}"})
     public void consumer1_0(ConsumerRecord<String, Object> record) {
         HashMap<String, Object> maps = Array2List.fromJson2Map(record.value().toString());
@@ -43,8 +42,7 @@ public class KafkaSimpleConsumer {
             String result = uploadDataService.getData(isSdml);
             if (result.equals("ok")) {
                 System.out.println("上传成功");
-            }else {
-
+            } else {
             }
 
         }
@@ -55,12 +53,12 @@ public class KafkaSimpleConsumer {
          */
     }
 
-    // 分组1 中的消费者1
+    // 医疗机构消费主题
     @KafkaListener(id = "consumer1-1", groupId = "simpleGroup", topics = {"${spring.kafka.app.topic.foo1}"})
     public void consumer1_1(ConsumerRecord<String, Object> record) {
         HashMap<String, Object> maps = Array2List.fromJson2Map(record.value().toString());
         //传入对象中
-      Islljg islljg= mapToObject.setObjectyljg(maps);
+        Islljg islljg = mapToObject.setObjectyljg(maps);
         //入库
         String resultid = insertDataService.insertData(islljg);
         if (resultid != null) {
@@ -68,32 +66,154 @@ public class KafkaSimpleConsumer {
             String result = uploadDataService.getData(islljg);
             if (result.equals("ok")) {
                 System.out.println("上传成功");
-            }else{
-
+            } else {
             }
 
         }
         System.out.println("consumer1-1 收到消息:" + record.value());
     }
 
-    // 分组1 中的消费者2
+    // 参保人消费主题
     @KafkaListener(id = "consumer1-2", groupId = "simpleGroup", topics = {"${spring.kafka.app.topic.foo2}"})
     public void consumer1_2(ConsumerRecord<String, Object> record) {
+        HashMap<String, Object> maps = Array2List.fromJson2Map(record.value().toString());
+        //传入对象中
+        IsCbrxx isCbrxx = mapToObject.setObjectCbrxx(maps);
 
+        //入库
+        String resultid = insertDataService.insertData(isCbrxx);
+       /* if (resultid != null) {
+            //取数
+            String result = uploadDataService.getData(isCbrxx);
+            if (result.equals("ok")) {
+                System.out.println("上传成功");
+            } else {
+            }
+*/
+        }
+   /*     System.out.println("consumer1-2 收到消息:" + record.value());*/
+/*    }*/
 
-        System.out.println("consumer1-2 收到消息:" + record.value());
-    }
-
-    // 分组1 中的消费者3
+    // 大病索赔
     @KafkaListener(id = "consumer1-3", groupId = "simpleGroup", topics = {"${spring.kafka.app.topic.foo3}"})
     public void consumer1_3(ConsumerRecord<String, Object> record) {
+        HashMap<String, Object> maps = Array2List.fromJson2Map(record.value().toString());
+        //传入对象中
+        IsDbsp islDbsp = mapToObject.setObjectDbsp(maps);
+        //入库
+        String resultid = insertDataService.insertData(islDbsp);
+        if (resultid != null) {
+            //取数
+  /*          String result = uploadDataService.getData(islDbsp);*/
+         /*   if (result.equals("ok")) {
+                System.out.println("上传成功");
+            } else {
+            }*/
+
+        }
         System.out.println("consumer1-3 收到消息:" + record.value());
     }
 
-    // 分组2 中的消费者
-    @KafkaListener(id = "consumer2-1", groupId = "group2", topics = {"${spring.kafka.app.topic.foo4}"})
-    public void consumer2_1(ConsumerRecord<String, Object> record) {
-        System.err.println("consumer2-1 收到消息:" + record.value());
+  // 住院补偿
+    @KafkaListener(id = "consumer1-4", groupId = "simpleGroup", topics = {"${spring.kafka.app.topic.foo4}"})
+    public void consumer1_4(ConsumerRecord<String, Object> record) {
+        HashMap<String, Object> maps = Array2List.fromJson2Map(record.value().toString());
+        //传入对象中
+        IsZybc isZybc = mapToObject.setObjectZybc(maps);
+        //入库
+      String resultid = insertDataService.insertData(isZybc);
+      /*    if (resultid != null) {
+            //取数
+            String result = uploadDataService.getData(isZybc);
+            if (result.equals("ok")) {
+                System.out.println("上传成功");
+            } else {
+            }/
+*/
+        }
+/*        System.err.println("consumer1-4 收到消息:" + record.value());*/
+
+
+     // 大病补偿业务状态
+    @KafkaListener(id = "consumer1-5", groupId = "simpleGroup", topics = {"${spring.kafka.app.topic.foo5}"})
+    public void consumer1_5(ConsumerRecord<String, Object> record) {
+        HashMap<String, Object> maps = Array2List.fromJson2Map(record.value().toString());
+        //传入对象中
+        IsDbbcywzt isDbbcywzt = mapToObject.setObjectDbbcywzt(maps);
+        //入库
+        String resultid = insertDataService.insertData(isDbbcywzt);
+
+      if (resultid != null) {
+            //取数
+           /* String result = uploadDataService.getData(isDbbcywzt);*/
+          /*  if (result.equals("ok")) {
+                System.out.println("上传成功");
+            } else {
+            }*/
+
+        }
+        System.err.println("consumer1-5 收到消息:" + record.value());
+    }
+
+
+    // 参保信息获取接口主题
+    @KafkaListener(id = "consumer1-6", groupId = "simpleGroup", topics = {"${spring.kafka.app.topic.foo6}"})
+    public void consumer1_6(ConsumerRecord<String, Object> record) {
+        HashMap<String, Object> maps = Array2List.fromJson2Map(record.value().toString());
+        //传入对象中
+        IsCbxxhq isCbxxhq = mapToObject.setObjectCbxxhq(maps);
+        //入库
+        String resultid = insertDataService.insertData(isCbxxhq);
+        if (resultid != null) {
+            //取数
+         /*   String result = uploadDataService.getData(isCbxxhq);
+            if (result.equals("ok")) {
+                System.out.println("上传成功");
+            } else {
+            }*/
+
+        }
+        System.err.println("consumer1-6 收到消息:" + record.value());
+    }
+
+   // 理赔状态接口主题
+    @KafkaListener(id = "consumer1-7", groupId = "simpleGroup", topics = {"${spring.kafka.app.topic.foo7}"})
+    public void consumer1_7(ConsumerRecord<String, Object> record) {
+        HashMap<String, Object> maps = Array2List.fromJson2Map(record.value().toString());
+        //传入对象中
+        Islpzt islpzt = mapToObject.setObjectIslpzt(maps);
+        //入库
+        String resultid = insertDataService.insertData(islpzt);
+    /*    if (resultid != null) {
+            //取数
+            String result = uploadDataService.getData(islpzt);
+            if (result.equals("ok")) {
+                System.out.println("上传成功");
+            } else {
+            }
+
+        }*/
+        System.err.println("consumer1-7 收到消息:" + record.value());
+    }
+
+     // 大病补偿业务状态查询主题
+    @KafkaListener(id = "consumer1-8", groupId = "simpleGroup", topics = {"${spring.kafka.app.topic.foo8}"})
+    public void consumer1_8(ConsumerRecord<String, Object> record) {
+        HashMap<String, Object> maps = Array2List.fromJson2Map(record.value().toString());
+        //传入对象中
+        IsDbbcywztcx isDbbcywztcx = mapToObject.setObjectIsDbbcywztcx(maps);
+        //入库
+        String resultid = insertDataService.insertData(isDbbcywztcx);
+      /*  if (resultid != null) {
+            //取数
+            String result = uploadDataService.getData(islpzt);
+            if (result.equals("ok")) {
+                System.out.println("上传成功");
+            } else {
+            }
+
+        }*/
+        System.err.println("consumer1-8 收到消息:" + record.value());
     }
 
 }

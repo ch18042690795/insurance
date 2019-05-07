@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.middle.dao.IsZjMapper">
+  <resultMap id="BaseResultMap" type="com.middle.entity.IsZj">
+    <result column="pkid00" jdbcType="VARCHAR" property="pkid00" />
+    <result column="zjlx00" jdbcType="VARCHAR" property="zjlx00" />
+    <result column="zjhm00" jdbcType="VARCHAR" property="zjhm00" />
+  </resultMap>
+  <insert id="insert" parameterType="com.middle.entity.IsZj">
+    insert into is_zj (pkid00, zjlx00, zjhm00
+      )
+    values (#{pkid00,jdbcType=VARCHAR}, #{zjlx00,jdbcType=VARCHAR}, #{zjhm00,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.middle.entity.IsZj">
+    insert into is_zj
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pkid00 != null">
+        pkid00,
+      </if>
+      <if test="zjlx00 != null">
+        zjlx00,
+      </if>
+      <if test="zjhm00 != null">
+        zjhm00,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pkid00 != null">
+        #{pkid00,jdbcType=VARCHAR},
+      </if>
+      <if test="zjlx00 != null">
+        #{zjlx00,jdbcType=VARCHAR},
+      </if>
+      <if test="zjhm00 != null">
+        #{zjhm00,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

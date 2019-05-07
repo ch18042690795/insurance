@@ -52,7 +52,7 @@ public class UploadDataServiceImpl implements UploadDataService {
         return result;
     }
 
-    public String setResult() {
+    public synchronized String setResult() {
         num++;
         if (num == 2) {
             //拼装字符串
@@ -174,8 +174,10 @@ public class UploadDataServiceImpl implements UploadDataService {
                     "</MedResultList>\n" +
                     "</body>\n" +
                     "</UploadMedResult_Request>";
+            //调用第三方接口
             String result = (new printClient()).print(XMLStr);
             System.out.println(result);
+            //初始化
             num = 0;
             medResult = null;
             return "ok";
