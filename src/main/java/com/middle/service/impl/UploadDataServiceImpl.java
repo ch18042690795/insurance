@@ -5,6 +5,7 @@ import com.middle.entity.IsSdml;
 import com.middle.entity.Islljg;
 import com.middle.entity.MedResult;
 import com.middle.service.UploadDataService;
+import com.middle.utils.FactoryUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,15 +21,15 @@ import java.util.List;
 @Service
 public class UploadDataServiceImpl implements UploadDataService {
     public static int num = 0;
-    public MedResult m = new MedResult();
-
+    private static MedResult medResult = null;
     public String getData(IsSdml isSdml) {
+        medResult = FactoryUtils.getMedResult();
         String result = null;
     /*    try {*/
-            //将需要导出的数据放入导出的对象中。
-            m.setAccidentCode("qaa");
-            //判断是否接收到所有主题的数据
-            result = this.setResult();
+        //将需要导出的数据放入导出的对象中。
+        medResult.setAccidentCode("qaa");
+        //判断是否接收到所有主题的数据
+        result = this.setResult();
 
        /* } catch (Exception e) {
         }*/
@@ -37,12 +38,13 @@ public class UploadDataServiceImpl implements UploadDataService {
 
     @Override
     public String getData(Islljg islljg) {
+        medResult = FactoryUtils.getMedResult();
         String result = null;
         /*try {*/
-            //将需要导出的数据放入导出的对象中。
-            m.setBasicBigDiseaseFlag("bbb");
-            //判断是否接收到所有主题的数据
-            result = this.setResult();
+        //将需要导出的数据放入导出的对象中。
+        medResult.setBasicBigDiseaseFlag("bbb");
+        //判断是否接收到所有主题的数据
+        result = this.setResult();
 
        /* } catch (Exception e) {
 
@@ -54,16 +56,16 @@ public class UploadDataServiceImpl implements UploadDataService {
         num++;
         if (num == 2) {
             //拼装字符串
-            String XMLStr="<?xml version='1.0'?>\n" +
+            String XMLStr = "<?xml version='1.0'?>\n" +
                     "<UploadMedResult_Request>\n" +
                     "<head>\n" +
                     "<StandardVersionCode>v1.0</StandardVersionCode>\n" +
-                    "<MaxRecord>1</MaxRecord>\n" +
+                    "<MaxRecord>" + medResult.getAccidentCode() + "</MaxRecord>\n" +
                     "<TransRefGUID>aad21ae9-0b45-4794-8598-27b774ee5651</TransRefGUID>\n" +
                     "<TransactionCode>H210</TransactionCode>\n" +
                     "<DefaultCurrencyCode>1</DefaultCurrencyCode>\n" +
                     "<MessageId>cc4c8853-82f8-4565-ac71-fd4ce2d4edc5</MessageId>\n" +
-                    "<CorrelationId>c50b8192-c7ca-4c5d-ad2b-1fe51843924e</CorrelationId>\n" +
+                    "<CorrelationId>" + medResult.getBasicBigDiseaseFlag() + "</CorrelationId>\n" +
                     "<MessageDateTime>2014-05-15 08:53:12</MessageDateTime>\n" +
                     "<SenderCode>431101</SenderCode><SenderName></SenderName>\n" +
                     "<SenderAddress></SenderAddress>\n" +
@@ -172,10 +174,10 @@ public class UploadDataServiceImpl implements UploadDataService {
                     "</MedResultList>\n" +
                     "</body>\n" +
                     "</UploadMedResult_Request>";
-            String result =(new printClient()).print(XMLStr);
+            String result = (new printClient()).print(XMLStr);
             System.out.println(result);
             num = 0;
-            m=null;
+            medResult = null;
             return "ok";
         }
         return "false";

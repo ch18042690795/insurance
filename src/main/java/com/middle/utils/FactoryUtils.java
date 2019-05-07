@@ -11,7 +11,7 @@ import com.middle.entity.MedResult;
 public class FactoryUtils {
     private static MedResult medResult = null;
         //同步代码快的demo加锁，安全高效
-        public  MedResult getMedResult(){
+        public static MedResult getMedResult(){
             if( medResult==null)
                 synchronized ( MedResult.class) {
                     if( medResult==null)
