@@ -1,5 +1,7 @@
 package com.middle.entity;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
+import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.stereotype.Component;
 
@@ -13,54 +15,71 @@ import java.util.Date;
  * 参合人员基本信息
  **/
 @Component
+@ExcelTarget("StaffInformation")
 public class StaffInformation {
     //身份证号
+    @Excel(name="身份证号")
     public String id;
     //户主姓名
+    @Excel(name="户主姓名")
     public String hhouseholdName;
     //性别
+    @Excel(name="性别")
     public String  gender;
     //民族
+    @Excel(name="民族")
     public String  nation;
     //出生日期
-    public Date birthday;
+    @Excel(name="出生日期" , exportFormat = "yyyy-MM-dd HH:mm:ss")
+    public String birthday;
     //出生地
+    @Excel(name="出生地")
     public String birthplace;
     //婚姻状况
+    @Excel(name="婚姻状况")
     public String maritalStatus;
     //健康状况
+    @Excel(name="健康状况")
     public String healthStatus;
     //新生儿标志
+    @Excel(name="新生儿标志")
     public String newBornFlag;
     //参合证号
+    @Excel(name="参合证号")
     public String nrcID;
     //身份唯一标识
+    @Excel(name="身份唯一标识")
     public String personalId;
     //邮政编码
+    @Excel(name="邮政编码")
     public String zipCode;
     //联系电话
+    @Excel(name="联系电话")
     public String telephone;
     //备用
     public String workUnit;
     //统筹区划编码
+    @Excel(name="统筹区划编码")
     public String districtCode;
     //备用
     public String districtName;
     //险种
+    @Excel(name="险种")
     public String insuranceType;
     //医疗人员类别
+    @Excel(name="医疗人员类别")
     public String medPersonType;
     //保单号
+    @Excel(name="保单号")
     public String insurancePolicy;
     //参保开始时间
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-    public Date InsurPoBeginDate;
+    public String InsurPoBeginDate;
     //参保终止时间
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-    public Date InsurPoEndDate;
+    public String InsurPoEndDate;
     //备用
     public String year;
     //家庭编码
+    @Excel(name="家庭编码")
     public String familyCode;
     //备用
     public String householdCode;
@@ -111,11 +130,11 @@ public class StaffInformation {
         this.nation = nation;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -231,19 +250,19 @@ public class StaffInformation {
         this.insurancePolicy = insurancePolicy;
     }
 
-    public Date getInsurPoBeginDate() {
+    public String getInsurPoBeginDate() {
         return InsurPoBeginDate;
     }
 
-    public void setInsurPoBeginDate(Date insurPoBeginDate) {
+    public void setInsurPoBeginDate(String insurPoBeginDate) {
         InsurPoBeginDate = insurPoBeginDate;
     }
 
-    public Date getInsurPoEndDate() {
+    public String getInsurPoEndDate() {
         return InsurPoEndDate;
     }
 
-    public void setInsurPoEndDate(Date insurPoEndDate) {
+    public void setInsurPoEndDate(String insurPoEndDate) {
         InsurPoEndDate = insurPoEndDate;
     }
 

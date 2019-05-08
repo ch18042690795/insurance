@@ -118,12 +118,12 @@ public class mapToObject {
     public static IsCbrxx setObjectCbrxx(HashMap<String, Object> maps) {
         Map map = mapToObject.getMap(maps);
         IsCbrxx isCbrxx = new IsCbrxx();
-        String pid = mapToObject.randomString((String) map.get("pkid00"));
-        isCbrxx.setPkid00(pid);
+ /*       String pid = mapToObject.randomString((String) map.get("pkid00"));
+        isCbrxx.setPkid00(pid);*/
         isCbrxx.setCbzt00((String) map.get("cbzt00"));
         isCbrxx.setCsrq00((String) map.get("csrq00"));
         isCbrxx.setDhua00((String) map.get("dhua00"));
-        isCbrxx.setId0000((String) map.get("Id0000"));
+        isCbrxx.setId0000((String) map.get("id0000"));
         isCbrxx.setJzrq00((String) map.get("jzrq00"));
         isCbrxx.setQhdm00((String) map.get("qhdm00"));
         isCbrxx.setQsrq00((String) map.get("qsrq00"));
@@ -152,7 +152,7 @@ public class mapToObject {
         IsCbxxhq isCbxxhq = new IsCbxxhq();
        /* String pid = mapToObject.randomString((String) map.get("pkid00"));*/
         isCbxxhq.setPkid00(RandomStringUtils.randomAlphanumeric(32));
-        isCbxxhq.setCbnyyue((String) map.get("cbnyyue"));
+        isCbxxhq.setCbnyyue((String) map.get("cbnyue"));
         isCbxxhq.setYwlx00((String) map.get("ywlx00"));
         return isCbxxhq;
 

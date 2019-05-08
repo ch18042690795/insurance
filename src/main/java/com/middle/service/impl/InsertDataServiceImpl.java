@@ -104,39 +104,64 @@ public class InsertDataServiceImpl implements InsertDataService {
     @Override
     public String insertData(IsZybc isZybc) {
         IsFy fy=isZybc.getFy();
+        try {
+            isZybcMapper.insert(isZybc);
+            isFyMapper.insert(fy);
+        }catch (Exception e){
+
+        }
         /*IsZj isZj=isZybc.getIsZj();*/
-        isZybcMapper.insert(isZybc);
-        isFyMapper.insert(fy);
+
         return fy.getPkid00();
     }
 
     @Override
     public String insertData(IsCbrxx isCbrxx) {
-        isCbrxxMapper.insert(isCbrxx);
+        try {
+            isCbrxxMapper.insert(isCbrxx);
+        }catch(Exception e){
+
+        }
         return isCbrxx.getPkid00();
     }
 
     @Override
     public String insertData(IsDbbcywzt isDbbcywzt) {
-        isDbbcywztMapper.insert(isDbbcywzt);
+        try {
+            isDbbcywztMapper.insert(isDbbcywzt);
+        }catch(Exception e){
+
+        }
         return isDbbcywzt.getDbspid();
     }
 
     @Override
     public String insertData(IsCbxxhq isCbxxhq) {
-        isCbxxhqMapper.insert(isCbxxhq);
+        try {
+            isCbxxhqMapper.insert(isCbxxhq);
+        }catch (Exception e){
+
+        }
         return isCbxxhq.getPkid00();
     }
 
     @Override
     public String insertData(Islpzt islpzt) {
-        islpztMapper.insert(islpzt);
+        try {
+            islpztMapper.insert(islpzt);
+        }catch (Exception e){
+
+        }
         return islpzt.getDbspid();
     }
 
     @Override
     public String insertData(IsDbbcywztcx isDbbcywztcx) {
-        isDbbcywztcxMapper.insert(isDbbcywztcx);
+        try {
+            isDbbcywztcxMapper.insert(isDbbcywztcx);
+        }catch (Exception e){
+
+        }
         return isDbbcywztcx.getDbspid();
     }
 }

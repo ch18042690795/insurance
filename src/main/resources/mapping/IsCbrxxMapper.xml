@@ -18,12 +18,12 @@
     <result column="dhua00" jdbcType="VARCHAR" property="dhua00" />
   </resultMap>
   <insert id="insert" parameterType="com.middle.entity.IsCbrxx">
-    insert into is_cbrxx (pkid00, qhdm00, ywlx00, 
+    insert into is_cbrxx (qhdm00, ywlx00,
       cbzt00, id0000, xbie00, 
       zjlx00, zjhm00, csrq00, 
       rysx00, qsrq00, jzrq00, 
       txdzhi, dhua00)
-    values (#{pkid00,jdbcType=VARCHAR}, #{qhdm00,jdbcType=VARCHAR}, #{ywlx00,jdbcType=VARCHAR}, 
+    values ( #{qhdm00,jdbcType=VARCHAR}, #{ywlx00,jdbcType=VARCHAR},
       #{cbzt00,jdbcType=VARCHAR}, #{id0000,jdbcType=VARCHAR}, #{xbie00,jdbcType=VARCHAR}, 
       #{zjlx00,jdbcType=VARCHAR}, #{zjhm00,jdbcType=VARCHAR}, #{csrq00,jdbcType=VARCHAR}, 
       #{rysx00,jdbcType=VARCHAR}, #{qsrq00,jdbcType=VARCHAR}, #{jzrq00,jdbcType=VARCHAR}, 

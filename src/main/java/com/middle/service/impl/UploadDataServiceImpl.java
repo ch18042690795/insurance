@@ -1,14 +1,16 @@
 package com.middle.service.impl;
 
 import com.middle.controller.webService.printClient;
-import com.middle.entity.IsSdml;
-import com.middle.entity.Islljg;
-import com.middle.entity.MedResult;
+import com.middle.entity.*;
 import com.middle.service.UploadDataService;
+import com.middle.utils.ExcelUtils;
 import com.middle.utils.FactoryUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,10 +22,18 @@ import java.util.List;
  **/
 @Service
 public class UploadDataServiceImpl implements UploadDataService {
+    @Autowired
+    Environment environment;
     public static int num = 0;
     private static MedResult medResult = null;
+    private static StaffInformation staffInformation = null;
+    private static PayeeInformation payeeInformation = null;
+    private static ArrayList list = null;
+
     public String getData(IsSdml isSdml) {
         medResult = FactoryUtils.getMedResult();
+        payeeInformation = FactoryUtils.getPayeeInformation();
+        staffInformation = FactoryUtils.getStaffInformation();
         String result = null;
     /*    try {*/
         //将需要导出的数据放入导出的对象中。
@@ -39,6 +49,162 @@ public class UploadDataServiceImpl implements UploadDataService {
     @Override
     public String getData(Islljg islljg) {
         medResult = FactoryUtils.getMedResult();
+        payeeInformation = FactoryUtils.getPayeeInformation();
+        staffInformation = FactoryUtils.getStaffInformation();
+        String result = null;
+        /*try {*/
+        //将需要导出的数据放入导出的对象中。
+        medResult.setHospitalCode(islljg.getFwwdbh());
+        //判断是否接收到所有主题的数据
+        result = this.setResult();
+
+       /* } catch (Exception e) {
+
+        }*/
+        return result;
+    }
+
+    @Override
+    public String getData(IsCbrxx isCbrxx) {
+        medResult = FactoryUtils.getMedResult();
+        payeeInformation = FactoryUtils.getPayeeInformation();
+        staffInformation = FactoryUtils.getStaffInformation();
+        String result = null;
+        staffInformation.setId(isCbrxx.getZjhm00());
+        staffInformation.setGender(isCbrxx.getXbie00());
+        staffInformation.setBirthday(isCbrxx.getCsrq00());
+        staffInformation.setPersonalId(isCbrxx.getId0000());
+        staffInformation.setZipCode(isCbrxx.getTxdzhi());
+        staffInformation.setTelephone(isCbrxx.getDhua00());
+        staffInformation.setDistrictCode(isCbrxx.getQhdm00());
+        payeeInformation.setTelephone(isCbrxx.getDhua00());
+        medResult.setSenderCode(isCbrxx.getQhdm00());
+        medResult.setDistrictCode(isCbrxx.getQhdm00());
+        /*try {*/
+        //将需要导出的数据放入导出的对象中。
+        //判断是否接收到所有主题的数据
+        result = this.setResult();
+
+       /* } catch (Exception e) {
+
+        }*/
+        return result;
+    }
+
+    @Override
+    public String getData(IsDbsp isDbsp) {
+        medResult = FactoryUtils.getMedResult();
+        payeeInformation = FactoryUtils.getPayeeInformation();
+        staffInformation = FactoryUtils.getStaffInformation();
+        String result = null;
+        IsGrxx isGrxx = isDbsp.getIsGrxx();
+        IsCyxx isCyxx = isDbsp.getIsCyxx();
+        IsZyxx isZyxx = isDbsp.getIsZyxx();
+        IsZysfmx isZysfmx = isDbsp.getIsZysfmx().get(0);
+        /*try {*/
+        //将需要导出的数据放入导出的对象中。
+        medResult.setReserveField2(isZysfmx.getZfbl00());
+        staffInformation.setHhouseholdName(isGrxx.getXming0());
+        staffInformation.setNewBornFlag(isGrxx.getXsetx0());
+        payeeInformation.setPersonID(isGrxx.getId0000());
+        medResult.setDischargeDate(isCyxx.getCyrq00());
+        medResult.setDisChargeCheifDiagnosis(isCyxx.getCyzd00());
+        medResult.setDepatmentName(isZyxx.getJzks00());
+        medResult.setSickbedNum(isZyxx.getCwhao0());
+        //判断是否接收到所有主题的数据
+        result = this.setResult();
+
+       /* } catch (Exception e) {
+
+        }*/
+        return result;
+    }
+
+    @Override
+    public String getData(IsZybc isZybc) {
+        medResult = FactoryUtils.getMedResult();
+        payeeInformation = FactoryUtils.getPayeeInformation();
+        staffInformation = FactoryUtils.getStaffInformation();
+        IsFy isFy = isZybc.getFy();
+        IsZj isZj = isZybc.getIsZj();
+        staffInformation.setName(isZybc.getXming0());
+        payeeInformation.setIdType(isZj.getZjlx00());
+        payeeInformation.setIdNumber(isZj.getZjhm00());
+        medResult.setMedicalPaymentTotalAmount(isFy.getYlzfy0());
+        String result = null;
+        /*try {*/
+        //将需要导出的数据放入导出的对象中。
+        //判断是否接收到所有主题的数据
+        result = this.setResult();
+
+       /* } catch (Exception e) {
+
+        }*/
+        return result;
+    }
+
+    @Override
+    public String getData(IsDbbcywzt isDbbcywzt) {
+        medResult = FactoryUtils.getMedResult();
+        payeeInformation = FactoryUtils.getPayeeInformation();
+        staffInformation = FactoryUtils.getStaffInformation();
+        String result = null;
+        /*try {*/
+        //将需要导出的数据放入导出的对象中。
+        medResult.setBasicBigDiseaseFlag("bbb");
+        //判断是否接收到所有主题的数据
+        result = this.setResult();
+
+       /* } catch (Exception e) {
+
+        }*/
+        return result;
+    }
+
+    @Override
+    public String getData(IsCbxxhq isCbxxhq) {
+        medResult = FactoryUtils.getMedResult();
+        payeeInformation = FactoryUtils.getPayeeInformation();
+        staffInformation = FactoryUtils.getStaffInformation();
+        String result = null;
+
+        /*try {*/
+        //将需要导出的数据放入导出的对象中。
+        medResult.setBasicBigDiseaseFlag("bbb");
+        //判断是否接收到所有主题的数据
+        result = this.setResult();
+
+       /* } catch (Exception e) {
+
+        }*/
+        return result;
+    }
+
+    @Override
+    public String getData(Islpzt islpzt) {
+        medResult = FactoryUtils.getMedResult();
+        payeeInformation = FactoryUtils.getPayeeInformation();
+        staffInformation = FactoryUtils.getStaffInformation();
+        String result = null;
+        medResult.setClinicSerialNum(islpzt.getZylsh0());
+        medResult.setReceiptNum(islpzt.getDjlsh0());
+        /*try {*/
+        //将需要导出的数据放入导出的对象中。
+        medResult.setBasicBigDiseaseFlag("bbb");
+        //判断是否接收到所有主题的数据
+        result = this.setResult();
+
+       /* } catch (Exception e) {
+
+        }*/
+        return result;
+    }
+
+    @Override
+    public String getData(IsDbbcywztcx isDbbcywztcx) {
+        medResult = FactoryUtils.getMedResult();
+        payeeInformation = FactoryUtils.getPayeeInformation();
+        staffInformation = FactoryUtils.getStaffInformation();
         String result = null;
         /*try {*/
         //将需要导出的数据放入导出的对象中。
@@ -54,18 +220,20 @@ public class UploadDataServiceImpl implements UploadDataService {
 
     public synchronized String setResult() {
         num++;
-        if (num == 2) {
+        System.out.println(Integer.valueOf(environment.getProperty("kafka.topic.nums")));
+        if (num == Integer.valueOf(environment.getProperty("kafka.topic.nums"))) {
+            String date = new java.text.SimpleDateFormat("yyyyMMddhhmmss").format(new Date()).toString();
             //拼装字符串
             String XMLStr = "<?xml version='1.0'?>\n" +
                     "<UploadMedResult_Request>\n" +
                     "<head>\n" +
-                    "<StandardVersionCode>v1.0</StandardVersionCode>\n" +
-                    "<MaxRecord>" + medResult.getAccidentCode() + "</MaxRecord>\n" +
-                    "<TransRefGUID>aad21ae9-0b45-4794-8598-27b774ee5651</TransRefGUID>\n" +
+                    "<StandardVersionCode>JKXZX V2.0.0.0</StandardVersionCode>\n" +
+                    "<MaxRecord>1</MaxRecord>\n" +
+                    "<TransRefGUID>" + medResult.getSenderCode() + "-" + date + "-" + medResult.getHospitalCode() + "-" + medResult.getClinicSerialNum() + "</TransRefGUID>\n" +
                     "<TransactionCode>H210</TransactionCode>\n" +
                     "<DefaultCurrencyCode>1</DefaultCurrencyCode>\n" +
                     "<MessageId>cc4c8853-82f8-4565-ac71-fd4ce2d4edc5</MessageId>\n" +
-                    "<CorrelationId>" + medResult.getBasicBigDiseaseFlag() + "</CorrelationId>\n" +
+                    "<CorrelationId>" + medResult.getSenderCode() + "-" + date + "-" + medResult.getHospitalCode() + "-" + medResult.getClinicSerialNum() + "</CorrelationId>\n" +
                     "<MessageDateTime>2014-05-15 08:53:12</MessageDateTime>\n" +
                     "<SenderCode>431101</SenderCode><SenderName></SenderName>\n" +
                     "<SenderAddress></SenderAddress>\n" +
@@ -77,96 +245,96 @@ public class UploadDataServiceImpl implements UploadDataService {
                     "</IntermediaryAddress>\n" +
                     "</head>\n" +
                     "<body>\n" +
-                    "<StaffInformation><ID>210101198001010014</ID>\n" +
-                    "<HHouseholdName> 张 三010</HHouseholdName>\n" +
-                    "<Gender>1</Gender>\n" +
+                    "<StaffInformation><ID>" + staffInformation.getId() + "</ID>\n" +
+                    "<HHouseholdName>" + staffInformation.getHhouseholdName() + "</HHouseholdName>\n" +
+                    "<Gender>" + staffInformation.getGender() + "</Gender>\n" +
                     "<Nation>01</Nation>\n" +
-                    "<Birthday>1987-10-19</Birthday>\n" +
+                    "<Birthday>" + staffInformation.getBirthday() + "</Birthday>\n" +
                     "<HouseholdAttribute>1</HouseholdAttribute>\n" +
-                    "<Town_or_Village_Num> 陵水 区 </Town_or_Village_Num>\n" +
-                    "<Birthplace> 陵 水 区</Birthplace>\n" +
+                    "<Town_or_Village_Num>  </Town_or_Village_Num>\n" +
+                    "<Birthplace> </Birthplace>\n" +
                     "<MaritalStatus>2</MaritalStatus>\n" +
                     "<HealthState>30</HealthState>\n" +
-                    "<NewBorn_Flag>0</NewBorn_Flag>\n" +
+                    "<NewBorn_Flag>" + staffInformation.getNewBornFlag() + "</NewBorn_Flag>\n" +
                     "<NrcID>nrcId001</NrcID>\n" +
-                    "<PersonalID>1000025699</PersonalID>\n" +
-                    "<ZipCode>110179</ZipCode>\n" +
-                    "<Telephone>15904064400</Telephone>\n" +
-                    "<WorkUnit>陵水区</WorkUnit>\n" +
-                    "<DistrictCode>431101</DistrictCode>\n" +
-                    "<DistrictName> 陵水区</DistrictName>\n" +
-                    "<InsuranceType>3H</InsuranceType>\n" +
-                    "<MedPersonType>51</MedPersonType>\n" +
-                    "<InsurancePolicy>PWBT201343110000000002</InsurancePolicy>\n" +
-                    "<InsurPo_BeginDate>2013-01-01 00:00:00</InsurPo_BeginDate>\n" +
-                    "<InsurPo_EndDate>2013-12-31 59:59:59</InsurPo_EndDate>\n" +
-                    "<Year>2013</Year>\n" +
-                    "<FamilyCode>0707</FamilyCode>\n" +
+                    "<PersonalID>" + staffInformation.getPersonalId() + "</PersonalID>\n" +
+                    "<ZipCode>" + staffInformation.getZipCode() + "</ZipCode>\n" +
+                    "<Telephone>" + staffInformation.getTelephone() + "</Telephone>\n" +
+                    "<WorkUnit></WorkUnit>\n" +
+                    "<DistrictCode>" + staffInformation.getDistrictCode() + "</DistrictCode>\n" +
+                    "<DistrictName></DistrictName>\n" +
+                    "<InsuranceType></InsuranceType>\n" +
+                    "<MedPersonType></MedPersonType>\n" +
+                    "<InsurancePolicy>" + staffInformation.getInsurancePolicy() + "</InsurancePolicy>\n" +
+                    "<InsurPo_BeginDate></InsurPo_BeginDate>\n" +
+                    "<InsurPo_EndDate></InsurPo_EndDate>\n" +
+                    "<Year></Year>\n" +
+                    "<FamilyCode></FamilyCode>\n" +
                     "<HouseholdCode></HouseholdCode>\n" +
-                    "<HHouseholdID>210101198001010014</HHouseholdID>\n" +
-                    "<GroupNum>0101</GroupNum>\n" +
-                    "<FamilyAmount>2</FamilyAmount>\n" +
-                    "<AgriculturalAmount>2</AgriculturalAmount>\n" +
-                    "<HomeAddress> 陵水区 </HomeAddress>\n" +
-                    "<Name> 张 三010</Name>\n" +
+                    "<HHouseholdID></HHouseholdID>\n" +
+                    "<GroupNum></GroupNum>\n" +
+                    "<FamilyAmount></FamilyAmount>\n" +
+                    "<AgriculturalAmount></AgriculturalAmount>\n" +
+                    "<HomeAddress>  </HomeAddress>\n" +
+                    "<Name>" + staffInformation.getName() + "</Name>\n" +
                     "<FamilyRelations>1</FamilyRelations>\n" +
                     "</StaffInformation><PayeeInformation>\n" +
-                    "<CustomerType>01</CustomerType>\n" +
-                    "<CustomerNature>1</CustomerNature>\n" +
-                    "<BankType>RCB</BankType>\n" +
-                    "<BankRegion>4203</BankRegion>\n" +
-                    "<BankBranchName>湖北竹山农村商业银行得胜支行</BankBranchName>\n" +
-                    "<LineNumber>402539440199</LineNumber>\n" +
-                    "<BankAccountName>储志莲 </BankAccountName>\n" +
-                    "<BankAccountNameAgain> 储 志 莲</BankAccountNameAgain>\n" +
-                    "<BankAccount>81010000153529900</BankAccount>\n" +
-                    "<BankAccountAgain>81010000153529900</BankAccountAgain>\n" +
-                    "<IDType>1</IDType>\n" +
-                    "<IDNumber>422624194811260028</IDNumber>\n" +
-                    "<Telephone>13797867807</Telephone>\n" +
-                    "<PersonalID>1000025699</PersonalID>\n" +
+                    "<CustomerType></CustomerType>\n" +
+                    "<CustomerNature></CustomerNature>\n" +
+                    "<BankType></BankType>\n" +
+                    "<BankRegion></BankRegion>\n" +
+                    "<BankBranchName></BankBranchName>\n" +
+                    "<LineNumber></LineNumber>\n" +
+                    "<BankAccountName> </BankAccountName>\n" +
+                    "<BankAccountNameAgain> </BankAccountNameAgain>\n" +
+                    "<BankAccount></BankAccount>\n" +
+                    "<BankAccountAgain></BankAccountAgain>\n" +
+                    "<IDType>" + payeeInformation.getIdType() + "</IDType>\n" +
+                    "<IDNumber>" + payeeInformation.getIdNumber() + "</IDNumber>\n" +
+                    "<Telephone>" + payeeInformation.getTelephone() + "</Telephone>\n" +
+                    "<PersonalID>" + payeeInformation.getPersonID() + "</PersonalID>\n" +
                     "<FeeField1></FeeField1>\n" +
                     "<FeeField2></FeeField2>\n" +
                     "</PayeeInformation>\n" +
                     "<MedResultList>\n" +
                     "<MedResult>\n" +
-                    "<TransRefGUID>0000-20140515085314-841</TransRefGUID>\n" +
-                    "<HospitalCode>226900</HospitalCode>\n" +
-                    "<ClinicSerialNum>AKC190-1000025699</ClinicSerialNum>\n" +
-                    "<SenderCode>431101</SenderCode>\n" +
-                    "<ReceiptNum>AAE072-1000025699</ReceiptNum>\n" +
-                    "<MedicalCategory>21</MedicalCategory>\n" +
-                    "<InpatientDate>2014-01-17 00:00:00</InpatientDate>\n" +
-                    "<InpatientDiagnosisDiseaseCode>I25.101</InpatientDiagnosisDiseaseCode>\n" +
-                    "<InpatientDiagnosisDiseaseName> 冠心病</InpatientDiagnosisDiseaseName>\n" +
-                    "<Discharge_date>2014-01-27 00:00:00</Discharge_date>\n" +
-                    "<Discharge_Reason>9</Discharge_Reason>\n" +
-                    "<DischargeCheifDiagnosis>I25.101</DischargeCheifDiagnosis>\n" +
-                    "<DischargeCheifDiagnosisName> 冠 心 病</DischargeCheifDiagnosisName>\n" +
+                    "<TransRefGUID>" + medResult.getSenderCode() + "-" + date + "-" + medResult.getHospitalCode() + "-" + medResult.getClinicSerialNum() + "</TransRefGUID>\n" +
+                    "<HospitalCode>" + medResult.getHospitalCode() + "</HospitalCode>\n" +
+                    "<ClinicSerialNum>" + medResult.getClinicSerialNum() + "</ClinicSerialNum>\n" +
+                    "<SenderCode>" + medResult.getSenderCode() + "</SenderCode>\n" +
+                    "<ReceiptNum>" + medResult.getReceiptNum() + "</ReceiptNum>\n" +
+                    "<MedicalCategory></MedicalCategory>\n" +
+                    "<InpatientDate></InpatientDate>\n" +
+                    "<InpatientDiagnosisDiseaseCode>" + medResult.getInpatientDiagnosisDiseaseCode() + "</InpatientDiagnosisDiseaseCode>\n" +
+                    "<InpatientDiagnosisDiseaseName> " + medResult.getInpatientDiagnosisDiseaseName() + "</InpatientDiagnosisDiseaseName>\n" +
+                    "<Discharge_date>" + medResult.getDischargeDate() + "</Discharge_date>\n" +
+                    "<Discharge_Reason>" + medResult.getDischargeReason() + "</Discharge_Reason>\n" +
+                    "<DischargeCheifDiagnosis>" + medResult.getDisChargeCheifDiagnosis() + "</DischargeCheifDiagnosis>\n" +
+                    "<DischargeCheifDiagnosisName>" + medResult.getDischargeCheifDiagnosisName() + "</DischargeCheifDiagnosisName>\n" +
                     "<DepartmentCode></DepartmentCode>\n" +
-                    "<DepartmentName></DepartmentName>\n" +
-                    "<SickbedNum></SickbedNum>\n" +
+                    "<DepartmentName>" + medResult.getDepatmentName() + "</DepartmentName>\n" +
+                    "<SickbedNum>" + medResult.getSickbedNum() + "</SickbedNum>\n" +
                     "<DoctorCode></DoctorCode>\n" +
                     "<DoctorName></DoctorName>\n" +
                     "<ClinicNum></ClinicNum>\n" +
-                    "<MedicalPaymentTotalAmount>5864.65</MedicalPaymentTotalAmount>\n" +
-                    "<PlanFundBySI>2493.24</PlanFundBySI>\n" +
-                    "<BigDiseaseCompenFee>424.15</BigDiseaseCompenFee>\n" +
-                    "<BasicMedTotalFeeAdd>0.0</BasicMedTotalFeeAdd>\n" +
-                    "<StandardTotalFeeAdd>0.0</StandardTotalFeeAdd>\n" +
-                    "<PlanFundBySIAdd>0.0</PlanFundBySIAdd>\n" +
-                    "<BigDiseaseCompenFeeAdd>0.0</BigDiseaseCompenFeeAdd>\n" +
+                    "<MedicalPaymentTotalAmount>" + medResult.getMedicalPaymentTotalAmount() + "</MedicalPaymentTotalAmount>\n" +
+                    "<PlanFundBySI></PlanFundBySI>\n" +
+                    "<BigDiseaseCompenFee></BigDiseaseCompenFee>\n" +
+                    "<BasicMedTotalFeeAdd></BasicMedTotalFeeAdd>\n" +
+                    "<StandardTotalFeeAdd></StandardTotalFeeAdd>\n" +
+                    "<PlanFundBySIAdd></PlanFundBySIAdd>\n" +
+                    "<BigDiseaseCompenFeeAdd></BigDiseaseCompenFeeAdd>\n" +
                     "<FeeField1></FeeField1>\n" +
                     "<FeeField></FeeField>\n" +
-                    "<FeeField3>4311810001</FeeField3>\n" +
-                    "<FeeField4>4311810088</FeeField4>\n" +
+                    "<FeeField3></FeeField3>\n" +
+                    "<FeeField4></FeeField4>\n" +
                     "<FeeField5></FeeField5>\n" +
                     "<FeeField6></FeeField6>\n" +
                     "<FeeField7></FeeField7>\n" +
                     "<FeeField8></FeeField8>\n" +
                     "<Formula></Formula>\n" +
-                    "<Operator> 周 轶 慧</Operator>\n" +
-                    "<DistrictCode>431101</DistrictCode>\n" +
+                    "<Operator></Operator>\n" +
+                    "<DistrictCode>" + medResult.getDistrictCode() + "</DistrictCode>\n" +
                     "<ReserveField1></ReserveField1>\n" +
                     "<ReserveField2></ReserveField2>\n" +
                     "<ReserveField3></ReserveField3>\n" +
@@ -174,12 +342,20 @@ public class UploadDataServiceImpl implements UploadDataService {
                     "</MedResultList>\n" +
                     "</body>\n" +
                     "</UploadMedResult_Request>";
+            //生成excel
+            List list=new ArrayList();
+            list.add(staffInformation);
+            list.add(payeeInformation);
+            list.add(medResult);
+            ExcelUtils.getDownLoad(list,environment.getProperty("file.location"));
             //调用第三方接口
             String result = (new printClient()).print(XMLStr);
             System.out.println(result);
             //初始化
             num = 0;
             medResult = null;
+            staffInformation=null;
+            payeeInformation=null;
             return "ok";
         }
         return "false";

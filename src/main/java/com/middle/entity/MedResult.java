@@ -1,5 +1,7 @@
 package com.middle.entity;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
+import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.util.Date;
@@ -10,77 +12,112 @@ import java.util.Date;
  * @author: Mr.Wang
  * @create: 2019-05-05 16:26
  **/
+@ExcelTarget("MedResult")
 public class MedResult {
+
     //流水账号
+    @Excel(name="流水账号")
     public String transRefGUID;
     //定点机构医疗编码
+    @Excel(name="定点机构医疗编码")
     public String hospitalCode;
     //住院登记号
+    @Excel(name="定点机构医疗编码")
     public String clinicSerialNum;
     //统筹区编码
+    @Excel(name="统筹区编码")
     public String senderCode;
     //票据号
+    @Excel(name="票据号")
     public String receiptNum;
-
+    //入院日期
+    @Excel(name = "入院日期", exportFormat = "yyyy-MM-dd HH:mm:ss")
+    public String inpatientDate;
     //入院诊断疾病编码
+    @Excel(name="入院诊断疾病编码")
     public String inpatientDiagnosisDiseaseCode;
     //入院诊断疾病名称
+    @Excel(name="入院诊断疾病编码")
     public String inpatientDiagnosisDiseaseName;
     //出院日期
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    public Date DischargeDate;
+   /* @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")*/
+
+    public String DischargeDate;
     //出院原因
+    @Excel(name="出院原因")
     public String dischargeReason;
     //出院疾病主要诊断编码
+    @Excel(name="出院疾病主要诊断编码")
     public String disChargeCheifDiagnosis;
     //出院疾病主要诊断名称
+    @Excel(name="出院疾病主要诊断名称")
     public String dischargeCheifDiagnosisName;
     //科室代码
+    @Excel(name="科室代码")
     public String departmentCode;
     //科室名称
+    @Excel(name="科室名称")
     public String depatmentName;
     //床位号
+    @Excel(name="床位号")
     public String sickbedNum;
     //医生编号
+    @Excel(name="医生编号")
     public String doctorCode;
     //医生姓名
+    @Excel(name="医生姓名")
     public String doctorName;
     //医院内部住院号
+    @Excel(name="医院内部住院号")
     public String clinicNum;
     //医疗费总额
+    @Excel(name="医疗费总额")
     public String medicalPaymentTotalAmount;
     //农和补偿金额（统筹）
+    @Excel(name="农和补偿金额（统筹）")
     public String planFundBySI;
     //大病补偿金额
+    @Excel(name="大病补偿金额")
     public String bigDiseaseCompenFee;
     //农合累计可报费用（统筹）
+    @Excel(name="农合累计可报费用（统筹）")
     public String basicMedTotalFeeAdd;
     //大病累计可报费用
+    @Excel(name="大病累计可报费用")
     public String standardTotalFeeAdd;
     //农合累计补偿金额（统筹）
+    @Excel(name="农合累计补偿金额（统筹）")
     public String planFundBySIAdd;
     //大病累计补偿金额
+    @Excel(name="大病累计补偿金额")
     public String bigDiseaseCompenFeeAdd;
     //本次合规医疗费（大病）
+    @Excel(name="本次合规医疗费(大病)")
     public String feeField1;
     //本次剔除非合规医疗费(大病)
+    @Excel(name="本次剔除非合规医疗费(大病)")
     public String feeField2;
     // 默认为空，如果启用（1-可以重复上传 0-不可以重
     //复上传）
+
     public String feeFiled3;
     //预留 4
     public String feeFiled4;
     //是否贫困人口（即精准扶贫标志），0-否 1-是
+    @Excel(name="是否贫困人口（即精准扶贫标志）")
     public String feeFiled5;
     //预留 6
     public String feeFiled6;
     //本次合规医疗费（农合）
     public String FeeField7;
     //本次剔除非合规医疗费（农合）
+    @Excel(name="本次剔除非合规医疗费（农合）")
     public String feeFiled8;
     //计算公式(不能出现”/”符号)
+
     public String feeFiled9;
     //经办人
+    @Excel(name="经办人")
     public String operator;
     //统筹区编码
     public String DistrictCode;
@@ -89,26 +126,32 @@ public class MedResult {
     public String MedicareOfficeApplyFlag;
     //基本医疗（统筹）或大额（大病）标识
     //0/空 - 大病1 - 基本医疗（统筹）
+    @Excel(name="基本医疗（统筹）或大额（大病）标识")
     public String basicBigDiseaseFlag;
     //账户支出金额（基本医疗)
+    @Excel(name="账户支出金额（基本医疗)")
     public String basicPersonAccount;
     //是否意外伤害（甘肃）0-非意外伤害1-意外伤害
+    @Excel(name="是否意外伤害")
     public String accidentCode;
     //是否医院就医（甘肃）0-非医院就医1-医院就医
+    @Excel(name="是否医院就医")
     public String hospitalAdvamceCode;
     //补偿类型（甘肃）
+    @Excel(name="补偿类型")
     public String compensatioType;
     //结算日期
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    public Date settleDate;
+
+
+    public String settleDate;
     //是否新生儿童标识（0/空– 否 1 - 是）
+
     public String NewBornFlag;
     //出险日期
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    public Date ReserveField1;
+    public String ReserveField1;
     //自费费用
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
-    public Date ReserveField2;
+    public String  ReserveField2;
     //符合补偿范围费用
     public String ReserveField3;
     //预留字段4
@@ -121,6 +164,18 @@ public class MedResult {
     public String ReserveField7;
     //预留字段8
     public String ReserveField8;
+
+    public void setSettleDate(String settleDate) {
+        this.settleDate = settleDate;
+    }
+
+    public String getReserveField1() {
+        return ReserveField1;
+    }
+
+    public void setReserveField1(String reserveField1) {
+        ReserveField1 = reserveField1;
+    }
 
     public String getTransRefGUID() {
         return transRefGUID;
@@ -170,6 +225,14 @@ public class MedResult {
         this.inpatientDiagnosisDiseaseCode = inpatientDiagnosisDiseaseCode;
     }
 
+    public String getInpatientDate() {
+        return inpatientDate;
+    }
+
+    public void setInpatientDate(String inpatientDate) {
+        this.inpatientDate = inpatientDate;
+    }
+
     public String getInpatientDiagnosisDiseaseName() {
         return inpatientDiagnosisDiseaseName;
     }
@@ -178,11 +241,11 @@ public class MedResult {
         this.inpatientDiagnosisDiseaseName = inpatientDiagnosisDiseaseName;
     }
 
-    public Date getDischargeDate() {
+    public String getDischargeDate() {
         return DischargeDate;
     }
 
-    public void setDischargeDate(Date dischargeDate) {
+    public void setDischargeDate(String dischargeDate) {
         DischargeDate = dischargeDate;
     }
 
@@ -450,13 +513,6 @@ public class MedResult {
         this.compensatioType = compensatioType;
     }
 
-    public Date getSettleDate() {
-        return settleDate;
-    }
-
-    public void setSettleDate(Date settleDate) {
-        this.settleDate = settleDate;
-    }
 
     public String getNewBornFlag() {
         return NewBornFlag;
@@ -466,19 +522,13 @@ public class MedResult {
         NewBornFlag = newBornFlag;
     }
 
-    public Date getReserveField1() {
-        return ReserveField1;
-    }
 
-    public void setReserveField1(Date reserveField1) {
-        ReserveField1 = reserveField1;
-    }
 
-    public Date getReserveField2() {
+    public String getReserveField2() {
         return ReserveField2;
     }
 
-    public void setReserveField2(Date reserveField2) {
+    public void setReserveField2(String reserveField2) {
         ReserveField2 = reserveField2;
     }
 

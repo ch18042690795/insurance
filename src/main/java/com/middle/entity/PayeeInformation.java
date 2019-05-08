@@ -1,39 +1,57 @@
 package com.middle.entity;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
+import cn.afterturn.easypoi.excel.annotation.ExcelTarget;
+
 /**
  * @program: insurance
  * @description: 领款人信息
  * @author: Mr.Wang
  * @create: 2019-05-05 16:07
  **/
+@ExcelTarget("PayeeInformation")
 public class PayeeInformation {
     //客户类型
+    @Excel(name="客户类型")
     public String customerType;
     //客户性质
+    @Excel(name="客户性质")
     public String customerNature;
     //开户银行类别
+    @Excel(name="开户银行类别")
     public String bankType;
     //银行区域
+    @Excel(name="银行区域")
     public String bankRegion;
     //卡户银行支行名称
+    @Excel(name="卡户银行支行名称")
     public String bankBranchName;
     //联行号
+    @Excel(name="联行号")
     public String lineNumber;
     //银行户名
+    @Excel(name="银行户名")
     public String bankAccountName;
     //确认银行账号
+    @Excel(name="确认银行账号")
     public String bankAccountNameAgain;
     //证件类型
+    @Excel(name="证件类型")
     public String idType;
     //证件号码
+    @Excel(name="证件号码")
     public String idNumber;
     //电话
+    @Excel(name="电话")
     public String telephone;
     //社保个人编码
+    @Excel(name="社保个人编码")
     public String personID;
     //银行附言
+    @Excel(name="银行附言")
     public String bankNode;
     //赔款说明
+    @Excel(name="赔款说明")
     public String calimNote;
     //账号类型
     public String FeeField1;

@@ -117,7 +117,7 @@ public class SendMsgController {
                 "\t\t\t\t},\n" +
                 "\t\t\t\t\"zyxx\": {\n" +
                 "\t\t\t\t\t\"zylsh0\": \"2\",\n" +
-                "\t\t\t\t\t\"zyrq00\": \"2\",\n" +
+                "\t\t\t\t\t\"zyrq00\": \"2017-3-12 12:12:10\",\n" +
                 "\t\t\t\t\t\"jbyblx\": \"2\",\n" +
                 "\t\t\t\t\t\"cwhao0\": \"2\",\n" +
                 "\t\t\t\t\t\"jzks00\": \"2\",\n" +
@@ -131,7 +131,7 @@ public class SendMsgController {
                 "\t\t\t\t\t\"zylsh0Old\": \"2\"\n" +
                 "\t\t\t\t},\n" +
                 "\t\t\t\t\"cyxx\": {\n" +
-                "\t\t\t\t\t\"cyrq00\": \"2\",\n" +
+                "\t\t\t\t\t\"cyrq00\": \"\",\n" +
                 "\t\t\t\t\t\"cyzd00\": \"2\"\n" +
                 "\t\t\t\t},\n" +
                 "\t\t\t\t\"zysfmx\": [{\n" +
@@ -207,10 +207,10 @@ public class SendMsgController {
                 "\t\t\t\t\"xbie00\": \"1\",\n" +
                 "\t\t\t\t\"zjlx00\": \"1\",\n" +
                 "\t\t\t\t\"zjhm00\": \"1\",\n" +
-                "\t\t\t\t\"csrq00\": \"1\",\n" +
+                "\t\t\t\t\"csrq00\": \"\",\n" +
                 "\t\t\t\t\"rysx00\": \"1\",\n" +
-                "\t\t\t\t\"qsrq00\": \"1\",\n" +
-                "\t\t\t\t\"jzrq00\": \"1\",\n" +
+                "\t\t\t\t\"qsrq00\": \"\",\n" +
+                "\t\t\t\t\"jzrq00\": \"\",\n" +
                 "\t\t\t\t\"txdzhi\": \"1\",\n" +
                 "\t\t\t\t\"dhua00\": \"1\"\n" +
                 "\t\t\t}\n" +
@@ -239,11 +239,11 @@ public class SendMsgController {
                 "\t\"body\": {\n" +
                 "\t\t\"datas\": [{\n" +
                 "\t\t\t\"code\": \"00\",\n" +
-                "\t\t\t\"message \": \"成功 \",\n" +
-                "\t\t\t\"value \": {\n" +
-                "\t\t\t\t\"sfzhao \": \"xxxxxx \",\n" +
-                "\t\t\t\t\"cbnyue \": \"201902 \",\n" +
-                "\t\t\t\t\"ywlx00 \": \"01 \"\n" +
+                "\t\t\t\"message\": \"成功 \",\n" +
+                "\t\t\t\"value\": {\n" +
+                "\t\t\t\t\"sfzhao\": \"xxxxxx \",\n" +
+                "\t\t\t\t\"cbnyue\": \"201902 \",\n" +
+                "\t\t\t\t\"ywlx00\": \"01 \"\n" +
                 "\t\t\t}\n" +
                 "\t\t}]\n" +
                 "\t}\n" +
@@ -259,7 +259,7 @@ public class SendMsgController {
                 "\t\t\t\t\"dbspid\": \"61f6841b6ef3434fa02319aacb9501d3\",\n" +
                 "\t\t\t\t\"lpzt00\": \"1\",\n" +
                 "\t\t\t\t\"lpsbyy\": \"1\",\n" +
-                "\t\t\t\t\"lprq00\": \"1\",\n" +
+                "\t\t\t\t\"lprq00\": \"\",\n" +
                 "\t\t\t\t\"zylsh0\": \"1\",\n" +
                 "\t\t\t\t\"djlsh0\": \"xxxxx\"\n" +
                 "\t\t\t}\n" +
@@ -280,7 +280,6 @@ public class SendMsgController {
                 "\t\t}]\n" +
                 "\t}\n" +
                 "}");
-
 
     }
 }
