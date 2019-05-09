@@ -39,7 +39,7 @@ public class KafkaSimpleConsumer {
         String resultid = insertDataService.insertData(isSdml);
         if (resultid != null) {
             //取数
-            String result = uploadDataService.getData(isSdml);
+            uploadDataService.getData(isSdml);
             System.out.println("消费者收到消息:" + maps);
 
         }
@@ -60,7 +60,7 @@ public class KafkaSimpleConsumer {
         String resultid = insertDataService.insertData(islljg);
         if (resultid != null) {
             //取数
-            String result = uploadDataService.getData(islljg);
+            uploadDataService.getData(islljg);
             System.out.println("consumer1-1 收到消息:" + record.value());
 
         }
@@ -77,7 +77,7 @@ public class KafkaSimpleConsumer {
         String resultid = insertDataService.insertData(isCbrxx);
 
             //取数
-            String result = uploadDataService.getData(isCbrxx);
+            uploadDataService.getData(isCbrxx);
             System.out.println("consumer1-2 收到消息:" + record.value());
 
 
@@ -113,7 +113,7 @@ public class KafkaSimpleConsumer {
         String resultid = insertDataService.insertData(isZybc);
         if (resultid != null) {
             //取数
-            String result = uploadDataService.getData(isZybc);
+           uploadDataService.getData(isZybc);
             System.err.println("consumer1-4 收到消息:" + record.value());
         }
 
@@ -130,7 +130,7 @@ public class KafkaSimpleConsumer {
 
       if (resultid != null) {
             //取数
-            String result = uploadDataService.getData(isDbbcywzt);
+             uploadDataService.getData(isDbbcywzt);
           System.err.println("consumer1-5 收到消息:" + record.value());
 
         }
@@ -148,7 +148,7 @@ public class KafkaSimpleConsumer {
         String resultid = insertDataService.insertData(isCbxxhq);
         if (resultid != null) {
             //取数
-            String result = uploadDataService.getData(isCbxxhq);
+            uploadDataService.getData(isCbxxhq);
             System.err.println("consumer1-6 收到消息:" + record.value());
 
         }
@@ -165,7 +165,7 @@ public class KafkaSimpleConsumer {
         String resultid = insertDataService.insertData(islpzt);
         if (resultid != null) {
             //取数
-            String result = uploadDataService.getData(islpzt);
+          uploadDataService.getData(islpzt);
             System.err.println("consumer1-7 收到消息:" + record.value());
 
         }
@@ -182,7 +182,7 @@ public class KafkaSimpleConsumer {
         String resultid = insertDataService.insertData(isDbbcywztcx);
         if (resultid != null) {
             //取数
-            String result = uploadDataService.getData(isDbbcywztcx);
+            uploadDataService.getData(isDbbcywztcx);
             System.err.println("consumer1-8 收到消息:" + record.value());
 
         }

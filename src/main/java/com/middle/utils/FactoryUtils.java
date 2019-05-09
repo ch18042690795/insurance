@@ -5,7 +5,9 @@ import com.middle.entity.PayeeInformation;
 import com.middle.entity.StaffInformation;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @program: insurance
@@ -54,5 +56,15 @@ public class FactoryUtils {
                     list = new ArrayList();
             }
         return list;
+    }
+    private static Set classList = null;
+    //同步代码快的demo加锁，安全高效
+    public static Set getClassList(){
+        if(classList==null)
+            synchronized (HashSet.class) {
+                if(classList==null)
+                    classList = new HashSet();
+            }
+        return classList;
     }
 }

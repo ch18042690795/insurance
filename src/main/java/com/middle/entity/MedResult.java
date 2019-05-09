@@ -145,7 +145,6 @@ public class MedResult {
 
     public String settleDate;
     //是否新生儿童标识（0/空– 否 1 - 是）
-
     public String NewBornFlag;
     //出险日期
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")

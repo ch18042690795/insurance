@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @program: insurance
@@ -24,44 +24,48 @@ import java.util.List;
 public class UploadDataServiceImpl implements UploadDataService {
     @Autowired
     Environment environment;
-    public static int num = 0;
+    //保存主题名称集合,用于判断是否拿到所有的主题数据
+    public static Set classLists=null;
+    //H210三个实体类
     private static MedResult medResult = null;
     private static StaffInformation staffInformation = null;
     private static PayeeInformation payeeInformation = null;
     private static ArrayList list = null;
 
-    public String getData(IsSdml isSdml) {
+    public void getData(IsSdml isSdml) {
         medResult = FactoryUtils.getMedResult();
         payeeInformation = FactoryUtils.getPayeeInformation();
         staffInformation = FactoryUtils.getStaffInformation();
-        String result = null;
+        classLists=FactoryUtils.getClassList();
+        classLists.add("IsSdml");
     /*    try {*/
         //将需要导出的数据放入导出的对象中。
         medResult.setAccidentCode("qaa");
         //判断是否接收到所有主题的数据
-        result = this.setResult();
+       this.setResult();
 
        /* } catch (Exception e) {
         }*/
-        return result;
+
     }
 
     @Override
-    public String getData(Islljg islljg) {
+    public void getData(Islljg islljg) {
         medResult = FactoryUtils.getMedResult();
         payeeInformation = FactoryUtils.getPayeeInformation();
         staffInformation = FactoryUtils.getStaffInformation();
-        String result = null;
+        classLists=FactoryUtils.getClassList();
+        classLists.add("Islljg");
         /*try {*/
         //将需要导出的数据放入导出的对象中。
         medResult.setHospitalCode(islljg.getFwwdbh());
         //判断是否接收到所有主题的数据
-        result = this.setResult();
+        this.setResult();
 
        /* } catch (Exception e) {
 
         }*/
-        return result;
+
     }
 
     @Override
@@ -83,20 +87,24 @@ public class UploadDataServiceImpl implements UploadDataService {
         /*try {*/
         //将需要导出的数据放入导出的对象中。
         //判断是否接收到所有主题的数据
-        result = this.setResult();
+        classLists=FactoryUtils.getClassList();
+        classLists.add("IsCbrxx");
+       this.setResult();
 
        /* } catch (Exception e) {
 
         }*/
+
         return result;
     }
 
     @Override
-    public String getData(IsDbsp isDbsp) {
+    public void getData(IsDbsp isDbsp) {
         medResult = FactoryUtils.getMedResult();
         payeeInformation = FactoryUtils.getPayeeInformation();
         staffInformation = FactoryUtils.getStaffInformation();
-        String result = null;
+        classLists=FactoryUtils.getClassList();
+        classLists.add("IsDbsp");
         IsGrxx isGrxx = isDbsp.getIsGrxx();
         IsCyxx isCyxx = isDbsp.getIsCyxx();
         IsZyxx isZyxx = isDbsp.getIsZyxx();
@@ -112,116 +120,110 @@ public class UploadDataServiceImpl implements UploadDataService {
         medResult.setDepatmentName(isZyxx.getJzks00());
         medResult.setSickbedNum(isZyxx.getCwhao0());
         //判断是否接收到所有主题的数据
-        result = this.setResult();
+        this.setResult();
 
        /* } catch (Exception e) {
 
         }*/
-        return result;
+
     }
 
     @Override
-    public String getData(IsZybc isZybc) {
+    public void getData(IsZybc isZybc) {
         medResult = FactoryUtils.getMedResult();
         payeeInformation = FactoryUtils.getPayeeInformation();
         staffInformation = FactoryUtils.getStaffInformation();
+        classLists=FactoryUtils.getClassList();
+        classLists.add("IsZybc");
         IsFy isFy = isZybc.getFy();
         IsZj isZj = isZybc.getIsZj();
         staffInformation.setName(isZybc.getXming0());
         payeeInformation.setIdType(isZj.getZjlx00());
         payeeInformation.setIdNumber(isZj.getZjhm00());
         medResult.setMedicalPaymentTotalAmount(isFy.getYlzfy0());
-        String result = null;
         /*try {*/
         //将需要导出的数据放入导出的对象中。
         //判断是否接收到所有主题的数据
-        result = this.setResult();
+        this.setResult();
 
        /* } catch (Exception e) {
 
         }*/
-        return result;
     }
 
     @Override
-    public String getData(IsDbbcywzt isDbbcywzt) {
+    public void getData(IsDbbcywzt isDbbcywzt) {
         medResult = FactoryUtils.getMedResult();
         payeeInformation = FactoryUtils.getPayeeInformation();
         staffInformation = FactoryUtils.getStaffInformation();
-        String result = null;
+        classLists=FactoryUtils.getClassList();
+        classLists.add("IsDbbcywzt");
         /*try {*/
         //将需要导出的数据放入导出的对象中。
-        medResult.setBasicBigDiseaseFlag("bbb");
         //判断是否接收到所有主题的数据
-        result = this.setResult();
+         this.setResult();
 
        /* } catch (Exception e) {
 
         }*/
-        return result;
+
     }
 
     @Override
-    public String getData(IsCbxxhq isCbxxhq) {
+    public void getData(IsCbxxhq isCbxxhq) {
         medResult = FactoryUtils.getMedResult();
         payeeInformation = FactoryUtils.getPayeeInformation();
         staffInformation = FactoryUtils.getStaffInformation();
-        String result = null;
-
-        /*try {*/
+        classLists=FactoryUtils.getClassList();
+        classLists.add("IsCbxxhq");
         //将需要导出的数据放入导出的对象中。
-        medResult.setBasicBigDiseaseFlag("bbb");
         //判断是否接收到所有主题的数据
-        result = this.setResult();
+       this.setResult();
 
-       /* } catch (Exception e) {
 
-        }*/
-        return result;
+
     }
 
     @Override
-    public String getData(Islpzt islpzt) {
+    public void getData(Islpzt islpzt) {
         medResult = FactoryUtils.getMedResult();
         payeeInformation = FactoryUtils.getPayeeInformation();
         staffInformation = FactoryUtils.getStaffInformation();
-        String result = null;
+        classLists=FactoryUtils.getClassList();
+        classLists.add("Islpzt");
         medResult.setClinicSerialNum(islpzt.getZylsh0());
         medResult.setReceiptNum(islpzt.getDjlsh0());
-        /*try {*/
-        //将需要导出的数据放入导出的对象中。
-        medResult.setBasicBigDiseaseFlag("bbb");
-        //判断是否接收到所有主题的数据
-        result = this.setResult();
+            //判断是否接收到所有主题的数据
+            this.setResult();
 
-       /* } catch (Exception e) {
 
-        }*/
-        return result;
     }
 
     @Override
-    public String getData(IsDbbcywztcx isDbbcywztcx) {
+    public void getData(IsDbbcywztcx isDbbcywztcx) {
         medResult = FactoryUtils.getMedResult();
         payeeInformation = FactoryUtils.getPayeeInformation();
         staffInformation = FactoryUtils.getStaffInformation();
-        String result = null;
-        /*try {*/
-        //将需要导出的数据放入导出的对象中。
-        medResult.setBasicBigDiseaseFlag("bbb");
-        //判断是否接收到所有主题的数据
-        result = this.setResult();
+        classLists=FactoryUtils.getClassList();
+        classLists.add("IsDbbcywztcx");
+/*        try {*/
+            //将需要导出的数据放入导出的对象中。
 
-       /* } catch (Exception e) {
+            //判断是否接收到所有主题的数据
 
-        }*/
-        return result;
+        this.setResult();
+
+      /*  } catch (Exception e) {
+
+        }
+*/
     }
 
-    public synchronized String setResult() {
-        num++;
+    public synchronized void setResult() {
+
         System.out.println(Integer.valueOf(environment.getProperty("kafka.topic.nums")));
-        if (num == Integer.valueOf(environment.getProperty("kafka.topic.nums"))) {
+
+        if (classLists.size() == Integer.valueOf(environment.getProperty("kafka.topic.nums"))) {
             String date = new java.text.SimpleDateFormat("yyyyMMddhhmmss").format(new Date()).toString();
             //拼装字符串
             String XMLStr = "<?xml version='1.0'?>\n" +
@@ -343,21 +345,20 @@ public class UploadDataServiceImpl implements UploadDataService {
                     "</body>\n" +
                     "</UploadMedResult_Request>";
             //生成excel
-            List list=new ArrayList();
+            List list = new ArrayList();
             list.add(staffInformation);
             list.add(payeeInformation);
             list.add(medResult);
-            ExcelUtils.getDownLoad(list,environment.getProperty("file.location"));
+            ExcelUtils.getDownLoad(list, environment.getProperty("file.location"));
             //调用第三方接口
             String result = (new printClient()).print(XMLStr);
             System.out.println(result);
             //初始化
-            num = 0;
+            classLists.clear();
             medResult = null;
-            staffInformation=null;
-            payeeInformation=null;
-            return "ok";
+            staffInformation = null;
+            payeeInformation = null;
         }
-        return "false";
+
     }
 }
