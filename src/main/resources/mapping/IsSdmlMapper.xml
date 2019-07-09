@@ -83,4 +83,7 @@
       </if>
     </trim>
   </insert>
+  <select id="getId" parameterType="String" resultType="com.middle.entity.IsSdml">
+      SELECT * from is_sdml where pkid00 = #{id}
+  </select>
 </mapper>

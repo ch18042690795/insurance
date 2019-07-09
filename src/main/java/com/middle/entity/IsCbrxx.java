@@ -4,7 +4,7 @@ public class IsCbrxx {
     private String pkid00;
 
     private String qhdm00;
-
+    private String xming0;
     private String ywlx00;
 
     private String cbzt00;
@@ -28,6 +28,14 @@ public class IsCbrxx {
     private String txdzhi;
 
     private String dhua00;
+
+    public String getXming0() {
+        return xming0;
+    }
+
+    public void setXming0(String xming0) {
+        this.xming0 = xming0;
+    }
 
     public String getPkid00() {
         return pkid00;

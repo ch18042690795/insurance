@@ -5,11 +5,15 @@ import com.middle.entity.*;
 import com.middle.service.InsertDataService;
 import com.middle.service.UploadDataService;
 import com.middle.utils.ExcelUtils;
+import com.middle.utils.FactoryUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * @program: insurance
@@ -53,119 +57,169 @@ public class InsertDataServiceImpl implements InsertDataService {
     IsDbbcywztcxMapper isDbbcywztcxMapper;
     @Autowired
     UploadDataService uploadDataService;
-
+    public static Set classLists=new TreeSet();
+    public static Set zybcClassList=new TreeSet();
     @Override
     public String insertData(IsSdml isSdml) {
-        try {
-            isSdmlMapper.insert(isSdml);
-            uploadDataService.getData(isSdml);
-            return isSdml.getPkid00();
-        } catch (Exception e) {
-            return null;
+        /*try {*/
+        if (isSdml!=null&&isSdmlMapper.getId(isSdml.getPkid00()) == null) {
+            int id = isSdmlMapper.insert(isSdml);
+            return "true";
         }
+        return null;
     }
 
     @Override
     public String insertData(Islljg islljg) {
-        try {
-            islljgMapper.insert(islljg);
-            uploadDataService.getData(islljg);
-            return islljg.getFwwdbh();
-        } catch (Exception e) {
-            return null;
+        if (islljg!=null&&islljgMapper.getId(islljg.getFwwdbh()) == null) {
+            int id =   islljgMapper.insert(islljg);
+            return "true";
         }
+        return null;
     }
 
     @Override
     public String insertData(IsDbsp isDbsp) {
-        IsGrxx isGrxx = isDbsp.getIsGrxx();
-        IsCyxx isCyxx = isDbsp.getIsCyxx();
-        List<IsZysfmx> isZysfmx = isDbsp.getIsZysfmx();
-        IsZyxx isZyxx = isDbsp.getIsZyxx();
-        IsZj isZj = isGrxx.getIszj();
-        IsZd isZd = isZyxx.getIsZd();
-        try {
+
+        if(isDbsp!=null){
+            IsGrxx isGrxx = isDbsp.getIsGrxx();
+            IsCyxx isCyxx = isDbsp.getIsCyxx();
+            List<IsZysfmx> isZysfmx = isDbsp.getIsZysfmx();
+            IsZyxx isZyxx = isDbsp.getIsZyxx();
+            IsZj isZj = isGrxx.getIszj();
+            IsZd isZd = isZyxx.getIsZd();
+
+
+
+
+       /* try {*/
             //插入大病索赔表
-            isDbspMapper.insert(isDbsp);
-            //插入grxx表
-            isGrxxMapper.insert(isGrxx);
-            //插入cyxx表
-            isCyxxMapper.insert(isCyxx);
-            //插入zyxx表
-            isZyxxMapper.insert(isZyxx);
-            //插入zj表
-            isZjMapper.insert(isZj);
-            //插入zd表
-            isZdMapper.insert(isZd);
-            //批量插入zysfmx
-            isZysfmxMapper.insert(isZysfmx);
-            return isDbsp.getPkid();
-        } catch (Exception e) {
-            return null;
+            if (isDbsp!=null&&isDbspMapper.getId(isDbsp.getPkid()) == null) {
+                isDbspMapper.insert(isDbsp);
+            }
+            if (isGrxx!=null&&isGrxxMapper.getId(isGrxx.getPkid()) == null) {
+                System.out.println(isGrxx.getPkid()+isGrxx.getCbzt00()+isGrxx.getYwlx00()+isGrxx.getIszj()+isGrxx.getXming0()+isGrxx.getXbie00());
+                //插入grxx表
+                isGrxxMapper.insert(isGrxx);
+            }
+            else if(isGrxx!=null&&isGrxxMapper.getId(isGrxx.getPkid()) != null){
+                isGrxxMapper.update(isGrxx);
+            }
+            if (isCyxx!=null&&isCyxxMapper.getId(isCyxx.getPkid00())== null) {
+                //插入cyxx表
+                isCyxxMapper.insert(isCyxx);
+            }
+            if (isZyxx!=null&&isZyxxMapper.getId(isZyxx.getPkid00()) == null) {
+                //插入zyxx表
+                isZyxxMapper.insert(isZyxx);
+            }
+            if (isZj!=null&&isZjMapper.getId(isZj.getPkid00()) == null) {
+                //插入zj表
+                isZjMapper.insert(isZj);
+            }
+            if (isZd!=null&&isZdMapper.getId(isZd.getPkid00())== null) {
+                //插入zd表
+                isZdMapper.insert(isZd);
+            }
+
+            if(isZysfmx!=null&&isZysfmx.size()>0){
+                isZysfmxMapper.insert(isZysfmx);
+            }
+
+
+                return "true";
+
         }
+
+        return null;
+
     }
 
     @Override
     public String insertData(IsZybc isZybc) {
         IsFy fy = isZybc.getFy();
-        try {
-            isZybcMapper.insert(isZybc);
-            isFyMapper.insert(fy);
-        } catch (Exception e) {
+        if(isZybc!=null){
+            if (isZybc!=null&&isZybcMapper.getId(isZybc.getOpid00()) == null) {
+                int id = isZybcMapper.insert(isZybc);
+
+            }
+            if (fy!=null&&isFyMapper.getId(fy.getPkid00()) == null) {
+                int id =  isFyMapper.insert(fy);
+
+            }
+                return "true";
 
         }
-        /*IsZj isZj=isZybc.getIsZj();*/
 
-        return fy.getPkid00();
+
+        return null;
     }
 
     @Override
     public String insertData(IsCbrxx isCbrxx) {
-        try {
-            isCbrxxMapper.insert(isCbrxx);
-        } catch (Exception e) {
-
+        /*try {*/
+        if (isCbrxx!=null&&isCbrxxMapper.getId(isCbrxx.getId0000()) == null) {
+            int id = isCbrxxMapper.insert(isCbrxx);
+            return "true";
         }
-        return isCbrxx.getPkid00();
+            return null;
     }
 
     @Override
     public String insertData(IsDbbcywzt isDbbcywzt) {
-        try {
-            isDbbcywztMapper.insert(isDbbcywzt);
-        } catch (Exception e) {
-
+       /* try {*/
+       /* } catch (Exception e) {
+        }*/
+        if (isDbbcywzt!=null&&isDbbcywztMapper.getId(isDbbcywzt.getDbspid()) == null) {
+            int id =   isDbbcywztMapper.insert(isDbbcywzt);
+            return "true";
         }
-        return isDbbcywzt.getDbspid();
+        return null;
     }
 
     @Override
     public String insertData(IsCbxxhq isCbxxhq) {
-        try {
-            isCbxxhqMapper.insert(isCbxxhq);
-        } catch (Exception e) {
-
+      /*  try {*/
+        if (isCbxxhq!=null&&isCbxxhqMapper.getId(isCbxxhq.getPkid00()) == null) {
+            int id =  isCbxxhqMapper.insert(isCbxxhq);
+            return "true";
         }
-        return isCbxxhq.getPkid00();
+     /*   } catch (Exception e) {
+
+        }*/
+        return null;
     }
 
     @Override
     public String insertData(Islpzt islpzt) {
-        try {
+      /*  try {*/
+        if (islpzt!=null&&islpztMapper.getId(islpzt.getDbspid()) == null) {
             islpztMapper.insert(islpzt);
-        } catch (Exception e) {
-
+            return "true";
         }
-        return islpzt.getDbspid();
+
+     /*   } catch (Exception e) {
+
+        }*/
+        return null;
     }
 
     @Override
     public String insertData(IsDbbcywztcx isDbbcywztcx) {
-        try {
-            isDbbcywztcxMapper.insert(isDbbcywztcx);
-        } catch (Exception e) {
-
+        if (isDbbcywztcx!=null&&isDbbcywztcxMapper.getId(isDbbcywztcx.getDbspid()) == null) {
+            int id =   isDbbcywztcxMapper.insert(isDbbcywztcx);
+            return "true";
         }
-        return isDbbcywztcx.getDbspid();
+
+     /*   } catch (Exception e) {
+
+        }*/
+        return null;
+       /* try {*/
+
+    /*    } catch (Exception e) {
+
+        }*/
+
     }
 }

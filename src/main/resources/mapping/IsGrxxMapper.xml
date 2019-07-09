@@ -11,13 +11,19 @@
     <result column="xsetx0" jdbcType="VARCHAR" property="xsetx0" />
   </resultMap>
   <insert id="insert" parameterType="com.middle.entity.IsGrxx">
-    insert into is_grxx (pkid, ywlx00, xming0, 
-      xbie00, cbzt00, id0000, 
+    insert into is_grxx (pkid, ywlx00, xming0,
+      xbie00, cbzt00, id0000,
       xsetx0)
-    values (#{pkid,jdbcType=VARCHAR}, #{ywlx00,jdbcType=VARCHAR}, #{xming0,jdbcType=VARCHAR}, 
-      #{xbie00,jdbcType=VARCHAR}, #{cbzt00,jdbcType=VARCHAR}, #{id0000,jdbcType=VARCHAR}, 
+    values (#{pkid,jdbcType=VARCHAR}, #{ywlx00,jdbcType=VARCHAR}, #{xming0,jdbcType=VARCHAR},
+      #{xbie00,jdbcType=VARCHAR}, #{cbzt00,jdbcType=VARCHAR}, #{id0000,jdbcType=VARCHAR},
       #{xsetx0,jdbcType=VARCHAR})
   </insert>
+
+  <update id="update" parameterType="com.middle.entity.IsGrxx">
+update is_grxx set ywlx00=#{ywlx00,jdbcType=VARCHAR},xming0=#{xming0,jdbcType=VARCHAR},xbie00=#{xbie00,jdbcType=VARCHAR}
+,cbzt00=#{cbzt00,jdbcType=VARCHAR},id0000=#{id0000,jdbcType=VARCHAR},xsetx0=#{xsetx0,jdbcType=VARCHAR}
+where pkid=#{pkid,jdbcType=VARCHAR}
+  </update>
   <insert id="insertSelective" parameterType="com.middle.entity.IsGrxx">
     insert into is_grxx
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -67,4 +73,7 @@
       </if>
     </trim>
   </insert>
+  <select id="getId" parameterType="String" resultType="com.middle.entity.IsGrxx">
+    SELECT * from is_grxx where pkid = #{id}
+  </select>
 </mapper>

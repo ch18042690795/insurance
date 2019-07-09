@@ -6,6 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface IsCbxxhqMapper {
     int insert(IsCbxxhq record);
-
+    IsCbxxhq getId(String id);
     int insertSelective(IsCbxxhq record);
 }

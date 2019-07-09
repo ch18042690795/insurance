@@ -2,7 +2,7 @@ package com.middle.entity;
 
 public class IsZybc {
     private String opid00;
-
+   private String ssybnd;
     private String dbspid;
 
     private String ybhao;
@@ -26,6 +26,15 @@ public class IsZybc {
     private String bzf000;
     private IsFy fy;
     private IsZj isZj;
+
+    public String getSsybnd() {
+        return ssybnd;
+    }
+
+    public void setSsybnd(String ssybnd) {
+        this.ssybnd = ssybnd;
+    }
+
 
     public IsFy getFy() {
         return fy;

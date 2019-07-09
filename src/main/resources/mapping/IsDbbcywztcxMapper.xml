@@ -21,4 +21,7 @@
       </if>
     </trim>
   </insert>
+  <select id="getId" parameterType="String" resultType="com.middle.entity.IsDbbcywztcx">
+    SELECT * from is_dbbcywztcx where dbspid = #{id}
+  </select>
 </mapper>

@@ -14,6 +14,18 @@ import java.util.Date;
  **/
 @ExcelTarget("MedResult")
 public class MedResult {
+//医疗机构名称
+    public String fwwdmc;
+    //医疗机构等级
+   public String  wdjbbh;
+
+    public String getWdjbbh() {
+        return wdjbbh;
+    }
+
+    public void setWdjbbh(String wdjbbh) {
+        this.wdjbbh = wdjbbh;
+    }
 
     //流水账号
     @Excel(name="流水账号")
@@ -22,7 +34,7 @@ public class MedResult {
     @Excel(name="定点机构医疗编码")
     public String hospitalCode;
     //住院登记号
-    @Excel(name="定点机构医疗编码")
+    @Excel(name="住院登记号")
     public String clinicSerialNum;
     //统筹区编码
     @Excel(name="统筹区编码")
@@ -30,6 +42,34 @@ public class MedResult {
     //票据号
     @Excel(name="票据号")
     public String receiptNum;
+    private String MedicalCategory;
+    private String pkid;
+    private String batch;
+
+    public String getFwwdmc() {
+        return fwwdmc;
+    }
+
+    public void setFwwdmc(String fwwdmc) {
+        this.fwwdmc = fwwdmc;
+    }
+
+    public String getBatch() {
+        return batch;
+    }
+
+    public void setBatch(String batch) {
+        this.batch = batch;
+    }
+
+    public String getMedicalCategory() {
+        return MedicalCategory;
+    }
+
+    public void setMedicalCategory(String medicalCategory) {
+        MedicalCategory = medicalCategory;
+    }
+
     //入院日期
     @Excel(name = "入院日期", exportFormat = "yyyy-MM-dd HH:mm:ss")
     public String inpatientDate;
@@ -114,6 +154,15 @@ public class MedResult {
     @Excel(name="本次剔除非合规医疗费（农合）")
     public String feeFiled8;
     //计算公式(不能出现”/”符号)
+public String year;
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
 
     public String feeFiled9;
     //经办人
@@ -194,6 +243,14 @@ public class MedResult {
 
     public String getClinicSerialNum() {
         return clinicSerialNum;
+    }
+
+    public String getPkid() {
+        return pkid;
+    }
+
+    public void setPkid(String pkid) {
+        this.pkid = pkid;
     }
 
     public void setClinicSerialNum(String clinicSerialNum) {

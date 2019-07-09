@@ -125,4 +125,11 @@
       </if>
     </trim>
   </insert>
+  <select id="getId" parameterType="String" resultType="com.middle.entity.Islljg">
+    SELECT * from is_lljg
+    <if test="_parameter !=null">
+      where fwwdbh = #{_parameter}
+    </if>
+
+  </select>
 </mapper>

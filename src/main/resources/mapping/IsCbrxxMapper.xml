@@ -22,12 +22,12 @@
       cbzt00, id0000, xbie00, 
       zjlx00, zjhm00, csrq00, 
       rysx00, qsrq00, jzrq00, 
-      txdzhi, dhua00)
+      txdzhi, dhua00,xming)
     values ( #{qhdm00,jdbcType=VARCHAR}, #{ywlx00,jdbcType=VARCHAR},
       #{cbzt00,jdbcType=VARCHAR}, #{id0000,jdbcType=VARCHAR}, #{xbie00,jdbcType=VARCHAR}, 
       #{zjlx00,jdbcType=VARCHAR}, #{zjhm00,jdbcType=VARCHAR}, #{csrq00,jdbcType=VARCHAR}, 
-      #{rysx00,jdbcType=VARCHAR}, #{qsrq00,jdbcType=VARCHAR}, #{jzrq00,jdbcType=VARCHAR}, 
-      #{txdzhi,jdbcType=VARCHAR}, #{dhua00,jdbcType=VARCHAR})
+      #{rysx00,jdbcType=VARCHAR}, #{qsrq00,jdbcType=VARCHAR}, #{jzrq00,jdbcType=VARCHAR},
+      #{txdzhi,jdbcType=VARCHAR}, #{dhua00,jdbcType=VARCHAR}, #{xming0,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.middle.entity.IsCbrxx">
     insert into is_cbrxx
@@ -120,4 +120,11 @@
       </if>
     </trim>
   </insert>
+  <select id="getId" parameterType="String" resultType="com.middle.entity.IsCbrxx">
+    SELECT * from is_cbrxx where id0000 = #{id0000}
+  </select>
+  <select id="getCBRXX" parameterType="String" resultType="com.middle.entity.IsCbrxx">
+    SELECT * from is_cbrxx where id0000 = #{id0000}
+  </select>
+
 </mapper>

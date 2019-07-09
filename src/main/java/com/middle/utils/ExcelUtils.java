@@ -74,7 +74,7 @@ public class ExcelUtils {
         // 创建参数对象（用来设定excel得sheet得内容等信息）
         ExportParams params1 = new ExportParams();
         // 设置sheet得名称
-        params1.setSheetName("参合人员基本信息");
+        params1.setSheetName("SHEET1");
         ;
         // 创建sheet1使用得map
         Map<String, Object> dataMap = new HashMap<>();
@@ -91,7 +91,7 @@ public class ExcelUtils {
         ExportParams params2 = new ExportParams();
         sheetsList.add(dataMap);
         // 设置sheet得名称
-        params2.setSheetName("领款人信息");
+        params2.setSheetName("SHEET2");
         ;
         // 创建sheet1使用得map
         Map<String, Object> dataMap1 = new HashMap<>();
@@ -106,7 +106,7 @@ public class ExcelUtils {
        /* sheetsList.add(dataMap2);*/
         ExportParams params3 = new ExportParams();
         // 设置sheet得名称
-        params3.setSheetName("就诊结算信息");
+  /*      params3.setSheetName("就诊结算信息");
         ;
         // 创建sheet1使用得map
         Map<String, Object> dataMap2 = new HashMap<>();
@@ -117,7 +117,7 @@ public class ExcelUtils {
         newListm.add((MedResult) lists.get(2));
         // sheet中要填充得数据
         dataMap2.put("data", newListm);
-        sheetsList.add(dataMap2);
+        sheetsList.add(dataMap2);*/
         /*sheetsList.add(dataMap3);*/
         // 执行方法
 

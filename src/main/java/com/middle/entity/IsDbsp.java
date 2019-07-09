@@ -8,12 +8,38 @@ public class IsDbsp {
     private String sbcwpc;
 
     private String jzlx00;
-
+    private String fzxbh0;
+    private String fwwdbh;
     private IsGrxx isGrxx;
     private IsZyxx isZyxx;
     private IsCyxx isCyxx;
+    private int isFileup;
+
+    public int getIsFileup() {
+        return isFileup;
+    }
+
+    public void setIsFileup(int isFileup) {
+        this.isFileup = isFileup;
+    }
+
     private List<IsZysfmx> isZysfmx;
 
+    public String getFzxbh0() {
+        return fzxbh0;
+    }
+
+    public void setFzxbh0(String fzxbh0) {
+        this.fzxbh0 = fzxbh0;
+    }
+
+    public String getFwwdbh() {
+        return fwwdbh;
+    }
+
+    public void setFwwdbh(String fwwdbh) {
+        this.fwwdbh = fwwdbh;
+    }
 
     public List<IsZysfmx> getIsZysfmx() {
         return isZysfmx;

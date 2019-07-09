@@ -140,6 +140,15 @@ public class IsFy {
     public String getSfcetk() {
         return sfcetk;
     }
+    private String thirdPartyCompensation;
+
+    public String getThirdPartyCompensation() {
+        return thirdPartyCompensation;
+    }
+
+    public void setThirdPartyCompensation(String thirdPartyCompensation) {
+        this.thirdPartyCompensation = thirdPartyCompensation;
+    }
 
     public void setSfcetk(String sfcetk) {
         this.sfcetk = sfcetk == null ? null : sfcetk.trim();

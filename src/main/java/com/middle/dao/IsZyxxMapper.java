@@ -7,5 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 public interface IsZyxxMapper {
     int insert(IsZyxx record);
 
+    IsZyxx getId(String id);
+
     int insertSelective(IsZyxx record);
 }

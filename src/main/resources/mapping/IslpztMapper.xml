@@ -12,11 +12,10 @@
   </resultMap>
   <insert id="insert" parameterType="com.middle.entity.Islpzt">
     insert into is_lpzt (dbspid, id0000, lpzt00, 
-      lpsbyy, lprq00, zylsh0, 
-      djlsh0)
-    values (#{dbspid,jdbcType=VARCHAR}, #{id0000,jdbcType=VARCHAR}, #{lpzt00,jdbcType=VARCHAR}, 
-      #{lpsbyy,jdbcType=VARCHAR}, #{lprq00,jdbcType=VARCHAR}, #{zylsh0,jdbcType=VARCHAR}, 
-      #{djlsh0,jdbcType=VARCHAR})
+      lpsbyy, lprq00, zylsh0, djlsh0)
+    values (#{dbspid}, #{id0000}, #{lpzt00},
+      #{lpsbyy}, #{lprq00}, #{zylsh0},
+      #{djlsh0})
   </insert>
   <insert id="insertSelective" parameterType="com.middle.entity.Islpzt">
     insert into is_lpzt
@@ -67,4 +66,7 @@
       </if>
     </trim>
   </insert>
+  <select id="getId" parameterType="String" resultType="com.middle.entity.Islpzt">
+    SELECT * from is_lpzt where dbspid = #{id}
+  </select>
 </mapper>

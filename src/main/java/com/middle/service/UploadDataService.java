@@ -18,11 +18,4 @@ public interface UploadDataService {
 
     public void getData(IsZybc isZybc);
 
-    public void getData(IsDbbcywzt isDbbcywzt);
-
-    public void getData(IsCbxxhq isCbxxhq);
-
-    public void getData(Islpzt islpzt);
-
-    public void getData(IsDbbcywztcx isDbbcywztcx);
 }

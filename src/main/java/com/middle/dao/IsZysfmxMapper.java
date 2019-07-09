@@ -9,4 +9,5 @@ public interface IsZysfmxMapper {
     /*int insert(IsZysfmx record);
     int insertSelective(IsZysfmx record);*/
     int insert(List<IsZysfmx> list);
+    List<IsZysfmx> getId(String id);
 }

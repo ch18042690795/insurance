@@ -37,4 +37,7 @@
       </if>
     </trim>
   </insert>
+  <select id="getId" parameterType="String" resultType="com.middle.entity.IsCyxx">
+    SELECT * from is_cyxx where pkid00 = #{id}
+  </select>
 </mapper>

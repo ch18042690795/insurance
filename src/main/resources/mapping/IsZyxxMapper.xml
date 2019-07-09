@@ -74,4 +74,7 @@
       </if>
     </trim>
   </insert>
+  <select id="getId" parameterType="String" resultType="com.middle.entity.IsZyxx">
+    SELECT * from is_zyxx where pkid00 = #{id}
+  </select>
 </mapper>

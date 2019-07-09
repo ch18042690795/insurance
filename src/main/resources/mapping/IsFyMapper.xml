@@ -136,4 +136,7 @@
       </if>
     </trim>
   </insert>
+  <select id="getId" parameterType="String" resultType="com.middle.entity.IsFy">
+    SELECT * from is_fy where pkid00 = #{id}
+  </select>
 </mapper>
