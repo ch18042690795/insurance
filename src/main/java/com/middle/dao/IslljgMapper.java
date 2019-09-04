@@ -10,7 +10,8 @@ import java.util.List;
 public interface IslljgMapper {
     int insert(Islljg record);
 
+    List<Islljg> getIds();
     List<Islljg> getId(String id);
-
     int insertSelective(Islljg record);
+    void update(String id);
 }

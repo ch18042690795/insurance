@@ -23,13 +23,13 @@
       wdjbbh, qsrq00, jzrq00, 
       lxren0, lxdhua, lxsji0, 
       wddz00, yljgxz, sfddyljg, 
-      yljgylxz, yljgxzjb, yljgxzgsd
+      yljgylxz, yljgxzjb, yljgxzgsd,isFileUp
       )
     values (#{fwwdbh,jdbcType=VARCHAR}, #{fwwdmc,jdbcType=VARCHAR},
       #{wdjbbh,jdbcType=VARCHAR}, #{qsrq00,jdbcType=VARCHAR}, #{jzrq00,jdbcType=VARCHAR}, 
       #{lxren0,jdbcType=VARCHAR}, #{lxdhua,jdbcType=VARCHAR}, #{lxsji0,jdbcType=VARCHAR}, 
       #{wddz00,jdbcType=VARCHAR}, #{yljgxz,jdbcType=VARCHAR}, #{sfddyljg,jdbcType=VARCHAR}, 
-      #{yljgylxz,jdbcType=VARCHAR}, #{yljgxzjb,jdbcType=VARCHAR}, #{yljgxzgsd,jdbcType=VARCHAR}
+      #{yljgylxz,jdbcType=VARCHAR}, #{yljgxzjb,jdbcType=VARCHAR}, #{yljgxzgsd,jdbcType=VARCHAR},0
       )
   </insert>
   <insert id="insertSelective" parameterType="com.middle.entity.Islljg">
@@ -126,10 +126,12 @@
     </trim>
   </insert>
   <select id="getId" parameterType="String" resultType="com.middle.entity.Islljg">
-    SELECT * from is_lljg
-    <if test="_parameter !=null">
-      where fwwdbh = #{_parameter}
-    </if>
-
+    SELECT * from is_lljg where fwwdbh = #{id}
   </select>
+  <select id="getIds" resultType="com.middle.entity.Islljg">
+    SELECT * from is_lljg where isFileUp=0;
+  </select>
+  <update id="update" parameterType="String" >
+        update is_lljg set isFileup = 1  where fwwdbh = #{id}
+  </update>
 </mapper>

@@ -176,6 +176,32 @@ public class KafkaProducer extends Thread {
                 "\t\t}]\n" +
                 "\t}\n" +
                 "}").start();*/
+        new KafkaProducer("a08b3d63ef774285a9553661e61eadcd","{\n" +
+                "\t\"head\": {\n" +
+                "\t\t\"appId\": \"\",\n" +
+                "\t\t\"requestId\": \"2e6fa451a9a94894af7196c9356907f4\"\n" +
+                "\t},\n" +
+                "\t\"body\": {\n" +
+                "\t\t\"datas\": [{\n" +
+                "\t\t\t\"value\": {\n" +
+                "\t\t\t\t\"fwwdbh\": \"512321321\",\n" +
+                "\t\t\t\t\"fwwdmc\": \"医疗机构名称\",\n" +
+                "\t\t\t\t\"wdjbbh\": \"医疗机构等级\",\n" +
+                "\t\t\t\t\"qsrq00\": \"2017-3-12 12:12:10\",\n" +
+                "\t\t\t\t\"jzrq00\": \"2017-9-12 12:12:10\",\n" +
+                "\t\t\t\t\"lxren0\": \"联系人\",\n" +
+                "\t\t\t\t\"lxdhua\": \"111111\",\n" +
+                "\t\t\t\t\"lxsji0\": \"222222\",\n" +
+                "\t\t\t\t\"wddz00\": \"通讯地址\",\n" +
+                "\t\t\t\t\"yljgxz\": \"医疗机构性质（预留）\",\n" +
+                "\t\t\t\t\"sfddyljg\": \"是否定点医疗机构\",\n" +
+                "\t\t\t\t\"yljgylxz\": \"医疗机构盈利性质（预留）\",\n" +
+                "\t\t\t\t\"yljgxzjb\": \"医疗机构行政级别（预留）\",\n" +
+                "\t\t\t\t\"yljgxzgsd\": \"医疗机构行政归属地\"\n" +
+                "\t\t\t}\n" +
+                "\t\t}]\n" +
+                "\t}\n" +
+                "}").start();
          new KafkaProducer("9c1baca06c3f47e08d80b6c163cb49d7-fabbfafa7f1943218820781d61a683a1","{\n" +
                  "\t\"head\": {\n" +
                  "\t\t\"appId\": null,\n" +

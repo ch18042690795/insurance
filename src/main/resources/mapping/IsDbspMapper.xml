@@ -43,7 +43,9 @@
      SELECT * from is_dbsp where pkid = #{id}
   </select>
   <select id="getDBSP"  resultType="com.middle.entity.IsDbsp">
-    SELECT a.* from is_dbsp a,is_zyxx b where a.pkid=b.pkid00 and a.isFileup = 0 and b.zyrq00 LIKE  '%2019%'  </select>
+   <!-- SELECT a.* from is_dbsp a,is_zyxx b where a.pkid=b.pkid00 and a.isFileup = 0 and b.zyrq00 LIKE  '%2019%'  </select>-->
+  SELECT a.* from is_dbsp a where a.isFileup = 0
+  </select>
   <update id="updateisFileup"  parameterType="String">
     update is_dbsp set isFileup = 1 where pkid = #{id}
   </update>

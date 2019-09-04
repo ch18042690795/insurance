@@ -71,7 +71,7 @@ public class InsertDataServiceImpl implements InsertDataService {
 
     @Override
     public String insertData(Islljg islljg) {
-        if (islljg!=null&&islljgMapper.getId(islljg.getFwwdbh()) == null) {
+        if (islljg!=null&&islljgMapper.getId(islljg.getFwwdbh()).size()==0) {
             int id =   islljgMapper.insert(islljg);
             return "true";
         }

@@ -60,7 +60,7 @@ public class KafkaConfiguration implements CommandLineRunner {
     @Value("${spring.kafka.app.topic.foo8}")
     private String topic8="c5dde726063e42e98f6a20b3bb61d582";
     /** groupId*/
-    private String GROUP_ID = "chenhao2019adu";
+    private String GROUP_ID = "chenhao2019ady";
     /** topic*/
     // @Value("${kafka.topic}")
     /** 消费者个数*/
@@ -75,9 +75,77 @@ public class KafkaConfiguration implements CommandLineRunner {
     KafkaSimpleConsumer kafkaSimpleConsumer;
     @Override
     public void run(String... args) throws Exception {
+        getKafka();
         writeKafka();
         readKafka();
 
+    }
+    private void getKafka(){
+        String[] dpsps=new String[]{
+                "20190628101703118148",
+                "20190628101703118164",
+                "20190628101703118190",
+                "20190628101703118192",
+                "20190628101703118208",
+                "20190628101703118254",
+                "20190628101703118265",
+                "20190628101703118286",
+                "20190628101703118302",
+                "20190628101703118305",
+                "20190628101703118323",
+                "20190628101703118338",
+                "20190628101703118356",
+                "20190628101703118372",
+                "20190628101703118373",
+                "20190628101703118415",
+                "20190628101703118426",
+                "20190628101703118442",
+                "20190628101704118458",
+                "20190628101704118469",
+                "20190628101704118522",
+                "20190628102234118556",
+                "20190628102234118557",
+                "20190628102234118558",
+                "20190628102234118559",
+                "20190628102234118560",
+                "20190628102234118561"
+        };
+        String[] zylsh=new String[]{
+                "02416901",
+                "02457294",
+                "02455629",
+                "02462251",
+                "02431290",
+                "02394495",
+                "02466304",
+                "02481315",
+                "02477649",
+                "02486697",
+                "02437553",
+                "02462196",
+                "02455454",
+                "02460829",
+                "02409745",
+                "02453453",
+                "02465723",
+                "02465647",
+                "02473272",
+                "02402108",
+                "02411212",
+                "02538941",
+                "02513417",
+                "02519550",
+                "02521220",
+                "02523105",
+                "02541176"
+        };
+        int i=0;
+        for(String dpsp:dpsps){
+            KafkaConfiguration.WriteLPZT(dpsp, "00",zylsh[i]);
+            i++;
+            System.out.println(dpsp+"----------------------------");
+            KafkaConfiguration.getLPZT(dpsp);
+        }
     }
     private void writeKafka(){
         new KafkaProducer("91f30ef49a6c4cea9452d13bef00f71b","{\n" +
@@ -96,9 +164,10 @@ public class KafkaConfiguration implements CommandLineRunner {
                 "\t}\n" +
                 "}").start();
 
+
     }
 
-    public static void WriteLPZT(String pkid,String lpzt) {
+    public static void WriteLPZT(String pkid,String lpzt,String zylsh0) {
         new KafkaProducer("d67e3b6fdd17424c806ede6df6800b51","{\n" +
                 "\t\"head\": {\n" +
                 "\t\t\"appId\": \"fabbfafa7f1943218820781d61a683a1\",\n" +
@@ -107,11 +176,11 @@ public class KafkaConfiguration implements CommandLineRunner {
                 "\t\"body\": {\n" +
                 "\t\t\"datas\": [{\n" +
                 "\t\t\t\"value\": {\n" +
-                "\t\t\t\t\"dbspid\":"+pkid+"\n" +
-                "\t\t\t\t\"lpzt00\":"+ lpzt+"\n" +
+                "\t\t\t\t\"dbspid\":\""+pkid+"\",\n" +
+                "\t\t\t\t\"lpzt00\":\""+ lpzt+"\",\n" +
                 "\t\t\t\t\"lpsbyy\": \"\",\n" +
-                "\t\t\t\t\"lprq00\": \"\",\n" +
-                "\t\t\t\t\"zylsh0\": \"\",\n" +
+                "\t\t\t\t\"lprq00\": \"20190712\",\n" +
+                "\t\t\t\t\"zylsh0\":\""+ zylsh0+"\",\n" +
                 "\t\t\t\t\"djlsh0\": \"\"\n" +
                 "\t\t\t}\n" +
                 "\t\t}]\n" +
@@ -129,7 +198,7 @@ public class KafkaConfiguration implements CommandLineRunner {
                 "\t\"body\": {\n" +
                 "\t\t\"datas\": [{\n" +
                 "\t\t\t\"value\": {\n" +
-                "\t\t\t\t\"dbspid\":"+pkid+"\n" +
+                "\t\t\t\t\"dbspid\":\""+pkid+"\"\n" +
                 "\t\t\t}\n" +
                 "\t\t}]\n" +
                 "\t}\n" +
@@ -157,16 +226,16 @@ public class KafkaConfiguration implements CommandLineRunner {
         topicCountMap.put(topic3, TOPIC_COUNTMAP);
         topicCountMap.put(topic4, TOPIC_COUNTMAP);
         topicCountMap.put(topic5, TOPIC_COUNTMAP);
-   /*     topicCountMap.put(topic6, TOPIC_COUNTMAP);*/
-/*        topicCountMap.put(topic7, TOPIC_COUNTMAP);
-        topicCountMap.put(topic8, TOPIC_COUNTMAP);*/
+/*        topicCountMap.put(topic6, TOPIC_COUNTMAP);*/
+  /*    topicCountMap.put(topic7, TOPIC_COUNTMAP);*/
+      /*    topicCountMap.put(topic8, TOPIC_COUNTMAP);*/
         StringDecoder keyDecoder = new StringDecoder(new VerifiableProperties());
         StringDecoder valueDecoder = new StringDecoder(new VerifiableProperties());
         Map<String, List<KafkaStream<String, String>>>  messageStreams = consumer.createMessageStreams(topicCountMap,
                 keyDecoder, valueDecoder);
-       /* Map<String, List<KafkaStream<String, String>>> messageStreams =
+     /*   Map<String, List<KafkaStream<String, String>>> messageStreams =
                 consumer.createMessageStreams(topicCountMap);*/
-        executorService = Executors.newFixedThreadPool(6);
+        executorService = Executors.newFixedThreadPool(8);
         // 获取每次接收到的这个数据
         messageStreams.values().stream().forEach(value -> {
                     List<KafkaStream<String, String>> streams = value;
@@ -175,10 +244,8 @@ public class KafkaConfiguration implements CommandLineRunner {
                      * （kafka consumer通过增加线程数来增加消费能力，但是需要足够的分区，如目前我设置的partition=6，那么并发可以启动6个线程同时消费）
                      * ExecutorService pool = createThreadPool();
                      */
-
                     for (final KafkaStream stream : streams) {
                         executorService.submit(new Runnable() {
-
                             int i=0;
                             @Override
                             public void run() {
@@ -186,19 +253,12 @@ public class KafkaConfiguration implements CommandLineRunner {
                                 while (iterator.hasNext()) {
                                     final MessageAndMetadata<String, String> messageAndMetadata = iterator.next();
                                     final String content= messageAndMetadata.message();
-                                  if(messageAndMetadata.topic().equals(topic4)&&i==0){
-                                      System.out.println(messageAndMetadata.message()+"----");
-                                      i++;
-                                  }
-
-/*
+                                    System.out.println(messageAndMetadata.message()+".............");
                                     kafkaSimpleConsumer.insertMessage(content,messageAndMetadata.topic());
-*/
                                 }
                             }
                         });
                     }
-
                 }
         );
     }

@@ -30,7 +30,15 @@ public class Islljg {
     private String yljgxzjb;
 
     private String yljgxzgsd;
+    private int isFileUp;
 
+    public int getIsFileUp() {
+        return isFileUp;
+    }
+
+    public void setIsFileUp(int isFileUp) {
+        this.isFileUp = isFileUp;
+    }
 
     public String getFwwdbh() {
         return fwwdbh;
