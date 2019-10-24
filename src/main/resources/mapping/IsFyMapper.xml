@@ -25,13 +25,13 @@
       blzf00, zyfy00, xyfy00, 
       Jbylqfx, Nrbybtc, Dbbcfy, 
       Nddbbcfy, sfcetk, zylsh0_old, 
-      sjdbbcfy)
+      sjdbbcfy,cwzfpc,jsnd00,sfxsesm)
     values (#{pkid00,jdbcType=VARCHAR}, #{ylzfy0,jdbcType=VARCHAR}, #{jlfy00,jdbcType=VARCHAR}, 
       #{ylfy00,jdbcType=VARCHAR}, #{ylzf00,jdbcType=VARCHAR}, #{blyb00,jdbcType=VARCHAR}, 
       #{blzf00,jdbcType=VARCHAR}, #{zyfy00,jdbcType=VARCHAR}, #{xyfy00,jdbcType=VARCHAR}, 
       #{jbylqfx,jdbcType=VARCHAR}, #{nrbybtc,jdbcType=VARCHAR}, #{dbbcfy,jdbcType=VARCHAR}, 
       #{nddbbcfy,jdbcType=VARCHAR}, #{sfcetk,jdbcType=VARCHAR}, #{zylsh0Old,jdbcType=VARCHAR}, 
-      #{sjdbbcfy,jdbcType=VARCHAR})
+      #{sjdbbcfy,jdbcType=VARCHAR},#{cwzfpc,jdbcType=VARCHAR},#{jsnd00,jdbcType=VARCHAR},#{sfxsesm,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.middle.entity.IsFy">
     insert into is_fy

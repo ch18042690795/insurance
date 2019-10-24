@@ -243,8 +243,16 @@ public class mapToObject {
             isfy.setZyfy00((String) fyObject.get("zyfy00")==null?"":(String)  fyObject.get("zyfy00"));
             isfy.setSjdbbcfy((String) fyObject.get("sjdbbcfy")==null?"":(String) fyObject.get("sjdbbcfy"));
             isfy.setZylsh0Old((String) fyObject.get("zylsh0_old")==null?"":(String)fyObject.get("zylsh0_old"));
+            isfy.setCwzfpc((String) fyObject.get("cwzfpc")==null?"":(String) fyObject.get("cwzfpc"));
+            isfy.setJsnd00((String) fyObject.get("jsnd00")==null?"":(String) fyObject.get("jsnd00"));
+            isfy.setSfxsesm((String) fyObject.get("sfxsesm")==null?"":(String) fyObject.get("sfxsesm"));
             isfy.setPkid00(pid);
             isZybc.setFy(isfy);
+            /**
+             *     private String cwzfpc;
+             private String jsnd00;
+             private String sfxsesm;
+             */
         }
 
 

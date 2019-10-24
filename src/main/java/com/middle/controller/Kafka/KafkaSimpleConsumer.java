@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -36,8 +37,6 @@ public class KafkaSimpleConsumer {
     InsertDataServiceImpl insertDataService;
     @Autowired
     UploadDataServiceImpl uploadDataService;
-
-
     @Value("${spring.kafka.app.topic.foo}")
     private String topic = "780409b81da84934b8f696c15e1f1c83";
     @Value("${spring.kafka.app.topic.foo1}")
@@ -57,6 +56,7 @@ public class KafkaSimpleConsumer {
     @Value("${spring.kafka.app.topic.foo8}")
     private String topic8 = "c5dde726063e42e98f6a20b3bb61d582";
 
+@RequestMapping("/aaa")
     public void insertMessage(String message, String CertainTopic) {
     HashMap<String, Object> maps = Array2List.fromJson2Map(message);
     if (CertainTopic.equals(topic)) {
@@ -66,11 +66,7 @@ public class KafkaSimpleConsumer {
         }catch (Exception e){
             e.getMessage();
         }
-
-
-
     }
-
     if (CertainTopic.equals(topic1)) {
         try {
             Islljg islljg = mapToObject.setObjectyljg(maps);
@@ -78,35 +74,25 @@ public class KafkaSimpleConsumer {
         }catch (Exception e){
             e.getMessage();
         }
-
-
-
     }
     if (CertainTopic.equals(topic2)) {
         try{
             IsCbrxx isCbrxx = mapToObject.setObjectCbrxx(maps);
             String result = insertDataService.insertData(isCbrxx);
         }
-
         catch (Exception e){
             e.getMessage();
         }
-
-
-
     }
     if (CertainTopic.equals(topic3)) {
-       /* try{*/
+        try{
             IsDbsp islDbsp = mapToObject.setObjectDbsp(maps);
 
             String result = insertDataService.insertData(islDbsp);
-    /*    }
+        }
         catch (Exception e){
             e.getMessage();
         }
-*/
-
-
     }
     if (CertainTopic.equals(topic4)) {
         try {

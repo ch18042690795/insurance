@@ -2,36 +2,48 @@ package com.middle.entity;
 
 public class IsFy {
     private String pkid00;
-
     private String ylzfy0;
-
     private String jlfy00;
-
     private String ylfy00;
-
     private String ylzf00;
-
     private String blyb00;
-
     private String blzf00;
-
     private String zyfy00;
-
     private String xyfy00;
-
     private String jbylqfx;
-
     private String nrbybtc;
-
     private String dbbcfy;
-
     private String nddbbcfy;
-
     private String sfcetk;
-
     private String zylsh0Old;
-
     private String sjdbbcfy;
+    private String cwzfpc;
+    private String jsnd00;
+    private String sfxsesm;
+
+    public String getCwzfpc() {
+        return cwzfpc;
+    }
+
+    public void setCwzfpc(String cwzfpc) {
+        this.cwzfpc = cwzfpc;
+    }
+
+    public String getJsnd00() {
+        return jsnd00;
+    }
+
+    public void setJsnd00(String jsnd00) {
+        this.jsnd00 = jsnd00;
+    }
+
+    public String getSfxsesm() {
+        return sfxsesm;
+    }
+
+    public void setSfxsesm(String sfxsesm) {
+        this.sfxsesm = sfxsesm;
+    }
 
     public String getPkid00() {
         return pkid00;
@@ -140,6 +152,7 @@ public class IsFy {
     public String getSfcetk() {
         return sfcetk;
     }
+
     private String thirdPartyCompensation;
 
     public String getThirdPartyCompensation() {
